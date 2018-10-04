@@ -1,0 +1,121 @@
+@import "./functions";
+@import "./variables";
+@import "./mixins";
+@import "./reboot";
+@import "./fontawesome";
+
+@import "./components/sidebar";
+
+* {
+  font-family: inherit !important;
+}
+
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: $body-bg !important;
+}
+
+body {
+  font-variant-numeric: tabular-nums !important;
+}
+
+table {
+  width: 100% !important; // force responsive
+}
+
+table, tbody, tr, td { // reset
+  border: none !important;
+  background-color: transparent !important;
+}
+td {
+  padding: 0;
+}
+
+#wrapper {
+  width: auto !important;
+  background-color: transparent !important;
+}
+
+// Site Header, Site Logo
+#header {
+  //noinspection CssUnknownTarget
+  background: $kku_color url('chrome-extension://__MSG_@@extension_id__/images/reg-logo.png') no-repeat !important;
+  background-size: contain !important;
+}
+
+// Page Container
+#page {
+  background: transparent !important;
+
+  // Language Switcher Container
+  > table:first-of-type {
+    height: 1.5rem;
+    background-color: darken($kku_color, 5%) !important;
+  }
+
+  // Empty Table maybe Separator
+  > table:nth-of-type(2) {
+    display: none;
+  }
+
+  // Main Container
+  > table:nth-of-type(3) {
+    > tbody {
+      > tr {
+
+        // Sidebar
+        > td:first-of-type {
+          @include sidebar;
+        }
+
+        // Main Content
+        > td:nth-of-type(2) {
+          display: flex;
+          width: 100% !important;
+          max-width: $content-container-max-width;
+          background-color: $white !important;
+          margin: 3rem auto;
+          padding: $card-padding;
+          flex-direction: column;
+          align-items: center;
+
+          @if $enable-rounded {
+            border-radius: $border-radius;
+          }
+
+          > * {
+
+
+          }
+        }
+
+        // Empty Cell to set minimum height?
+        > td:last-of-type {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // Footer 1
+  > table:nth-of-type(4) {
+
+  }
+
+  // Footer 2
+  > table:last-of-type {
+
+  }
+}
+
+
+
+/* -----------------
+        Misc.
+----------------- */
+
+// Page Loading Indicator
+#waitDiv {
+  display: none;
+}

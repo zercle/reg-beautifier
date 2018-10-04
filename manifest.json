@@ -1,0 +1,54 @@
+{
+  "manifest_version": 2,
+  "name": "REG Beautifier",
+  "version": "2018.10.1",
+  "version_name": "2018.10.1",
+  "description": "Modified UI for REG KKU",
+  "permissions": [
+    "declarativeContent",
+    "storage",
+    "cookies",
+    "*://reg.kku.ac.th/*"
+  ],
+  "icons": {
+    "16": "images/icon_16.png",
+    "32": "images/icon_32.png",
+    "48": "images/icon_48.png",
+    "128": "images/icon_128.png"
+  },
+  "page_action": {
+    "default_icon": {
+      "16": "images/icon_16.png",
+      "32": "images/icon_32.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://reg.kku.ac.th/*"
+      ],
+      "css": [
+        "css/styles.css"
+      ]
+    },
+    {
+      "matches": [
+        "*://reg.kku.ac.th/registrar/home.asp*",
+        "*://reg.kku.ac.th/registrar/HOME.asp*"
+      ],
+      "css": [
+        "css/pages/home.css"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ],
+    "persistent": false
+  },
+  "web_accessible_resources": [
+    "images/*",
+    "webfonts/*"
+  ]
+}

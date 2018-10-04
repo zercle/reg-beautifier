@@ -1,0 +1,72 @@
+
+// Toggles
+//
+// Used in conjunction with global variables to enable certain theme features.
+
+// Utilities
+//@import "mixins/breakpoints";
+@import "mixins/hover";
+//@import "mixins/image";
+//@import "mixins/badge";
+//@import "mixins/resize";
+//@import "mixins/screen-reader";
+//@import "mixins/size";
+//@import "mixins/reset-text";
+//@import "mixins/text-emphasis";
+//@import "mixins/text-hide";
+//@import "mixins/text-truncate";
+//@import "mixins/visibility";
+//
+//// // Components
+//@import "mixins/alert";
+//@import "mixins/buttons";
+//@import "mixins/caret";
+//@import "mixins/pagination";
+//@import "mixins/lists";
+//@import "mixins/list-group";
+//@import "mixins/nav-divider";
+//@import "mixins/forms";
+//@import "mixins/table-row";
+//
+//// // Skins
+//@import "mixins/background-variant";
+//@import "mixins/border-radius";
+//@import "mixins/box-shadow";
+//@import "mixins/gradients";
+//@import "mixins/transition";
+//
+//// // Layout
+//@import "mixins/clearfix";
+//@import "mixins/grid-framework";
+//@import "mixins/grid";
+//@import "mixins/float";
+
+@mixin to_card_edge($padding) {
+  width: calc(100% + (2 * #{$padding})) !important;
+  margin-left: -$padding;
+  margin-bottom: -$padding;
+}
+
+@mixin relocate_username() {
+  > table:first-of-type {
+    width: auto !important;
+    position: absolute;
+    animation: showUserName 600ms forwards;
+    > tbody {
+      > tr {
+        > td:first-child {
+          display: none;
+        }
+        > td.HeaderDetail {
+          font-size: 1rem;
+          font-weight: normal;
+          color: rgba(white, 0.8) !important;
+        }
+      }
+    }
+    @media only screen and (max-width: 680px) {
+      display: none;
+    }
+  }
+}
+

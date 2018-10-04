@@ -1,0 +1,13 @@
+@import "../variables";
+
+@mixin sidebar {
+  width: $sidebar-width;
+
+  #title {
+
+  }
+
+  #menu {
+    width: $sidebar-width;
+  }
+}
