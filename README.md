@@ -1,2 +1,2 @@
 # REG Beautifier
-#### Modified UI for REG KKU Website
+### Modified UI for REG KKU Website
