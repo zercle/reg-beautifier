@@ -23,7 +23,5 @@ npm install -g gulp-cli
 ```
 #### Run
 ```zsh
-yarn global add gulp-cli
-# or
-npm install -g gulp-cli
+gulp
 ```
