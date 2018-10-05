@@ -1,27 +1,29 @@
 # REG Beautifier
 Modified UI for REG KKU Website
 [![Build Status](https://travis-ci.org/zercle/reg-beautifier.svg?branch=master)](https://travis-ci.org/zercle/reg-beautifier)
----
-## Download
-<a href="https://chrome.google.com/webstore/detail/reg-beautifier/jdccbfhggeebpboadaffcpmdclhjjmam" title="Download Google Chrome Extension"><img src="https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_340x96.png" width="170" alt="Google Chrome Extension Logo"></a>
+
+#### Download
+<a href="https://chrome.google.com/webstore/detail/reg-beautifier/jdccbfhggeebpboadaffcpmdclhjjmam" title="Download Google Chrome Extension">
+    <img src="https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_340x96.png" width="170" alt="Google Chrome Extension Logo">
+</a>
 
 ---
 ## Development
 #### Installation
-```shell
-$ yarn
+```zsh
+yarn
 # or
-$ npm install
+npm install
 ```
 #### Requires Package
-```shell
-$ yarn global add gulp-cli
+```zsh
+yarn global add gulp-cli
 # or
-$ npm install -g gulp-cli
+npm install -g gulp-cli
 ```
 #### Run
-```shell
-$ yarn global add gulp-cli
+```zsh
+yarn global add gulp-cli
 # or
-$ npm install -g gulp-cli
+npm install -g gulp-cli
 ```
