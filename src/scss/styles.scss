@@ -39,6 +39,7 @@ td {
 
 // Site Header, Site Logo
 #header {
+  height: $site-header-height !important;
   //noinspection CssUnknownTarget
   background: $kku_color url('chrome-extension://__MSG_@@extension_id__/images/reg-logo.png') no-repeat !important;
   background-size: contain !important;
@@ -48,9 +49,9 @@ td {
 #page {
   background: transparent !important;
 
-  // Language Switcher Container
+  // Language Switcher Bar
   > table:first-of-type {
-    height: 1.5rem;
+    height: $language-switcher-bar-height;
     background-color: darken($kku_color, 5%) !important;
   }
 
@@ -100,12 +101,79 @@ td {
 
   // Footer 1
   > table:nth-of-type(4) {
+    > tbody {
 
+      // Hide Clock Section
+      > tr:first-of-type {
+        display: none;
+      }
+
+      > tr:last-of-type {
+        > td:first-of-type {
+          width: $sidebar-width;
+          background: $sidebar-bg !important;
+        }
+
+        > td:last-of-type {
+
+          text-align: center;
+          // To top page Button
+          > a[href="#top"] {
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-size: .8rem;
+
+            // Remove default image
+            img {
+              display: none;
+            }
+
+            // Add arrow icon
+            &:before {
+              content: '\f0aa';
+              //noinspection CssNoGenericFontName
+              font-family: 'fa-solid';
+              font-size: 1.5rem;
+              display: inline-block;
+              vertical-align: middle;
+            }
+
+            // Add text
+            &:after {
+              content: 'To top of page';
+              font-weight: bold;
+              display: inline-block;
+              margin-left: 4px;
+              vertical-align: middle;
+            }
+
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
   }
 
   // Footer 2
   > table:last-of-type {
-
+    background-color: darken($kku_color, 5%) !important;
+    height: $site-footer-height;
+    > tbody {
+      > tr {
+        > td:last-of-type {
+          text-align: right;
+          &:after {
+            margin-right: 1rem;
+            content: 'REG Beautifier by Zercle';
+            font-size: .625rem;
+            font-weight: bold;
+            color: $white;
+          }
+        }
+      }
+    }
   }
 }
 

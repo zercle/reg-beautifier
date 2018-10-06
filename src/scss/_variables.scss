@@ -1,10 +1,21 @@
 @import "./bootstrap-variables";
+
 $kku_color: #A73B24;
 $dark_navy: #2A3A42;
 
-$body-bg: #EFEFEF;
+$primary: $kku_color;
 
-$sidebar-width: 220px;
-$content-container-max-width: 960px;
+$body-bg: #EFEFEF;
+$sidebar-bg: $dark_navy;
+
+$link-color: $kku_color;
+$link-hover-color: darken($link-color, 15%);
+
+$sidebar-width: 13.75rem; // 220px
+$content-container-max-width: 60rem; // 960px
+
+$site-header-height: 6rem;
+$language-switcher-bar-height: 1.5rem;
+$site-footer-height: 1.5rem;
 
 $card-padding: 1.25rem;

@@ -23,5 +23,7 @@ npm install -g gulp-cli
 ```
 #### Run
 ```zsh
-gulp
+yarn start
+# or
+npm start
 ```
