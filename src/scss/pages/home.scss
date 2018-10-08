@@ -1,4 +1,36 @@
+@import "../variables";
 
+// Page Container
+#page {
+
+  // Main Container
+  > table:nth-of-type(3) {
+    > tbody {
+      > tr {
+
+        // Main Content
+        > td:nth-of-type(2) {
+
+          // Empty table?
+          > table:first-of-type {
+            // marquee was disabled below Misc. section
+          }
+
+          // Notices table
+          > table:last-of-type {
+            > tbody {
+
+              // Page Title
+              > tr:first-of-type {
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 /* -----------------
         Misc.
@@ -7,4 +39,8 @@
 // Remove text scroll (marquee)
 .styleMARQUEE {
   display: none;
+}
+
+.twitter-share-button {
+  width: 61px !important;
 }

@@ -44,7 +44,7 @@ gulp.task('css', gulp.series('clean:css', () => {
 }));
 
 gulp.task('js', gulp.series('clean:js', () => {
-    return gulp.src('src/js/*.js')
+    return gulp.src('src/js/**/*.js')
         .pipe(gulp.dest('dist/js'));
 }));
 

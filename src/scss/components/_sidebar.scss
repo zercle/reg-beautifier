@@ -1,4 +1,5 @@
 @import "../variables";
+@import "./sidebar_icons";
 
 @mixin sidebar {
   width: $sidebar-width;
@@ -54,6 +55,10 @@
       &:after {
         margin-left: 8px;
       }
+
     }
+
+    @include sidebar_icons;
+
   }
 }

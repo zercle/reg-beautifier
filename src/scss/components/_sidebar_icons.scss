@@ -1,0 +1,227 @@
+@mixin sidebar_icons {
+
+  a {
+
+    &[href*="home"]:not([href*="academiccalendar"]):not([href*="room_time"]), &[href*="HOME"] {
+      &:before {
+        content: '\f359';
+      }
+    }
+
+    &[href="JavaScript:history.back();"] {
+      &:before {
+        content: '\f359';
+      }
+    }
+
+    &[href*="login"] {
+      &:before {
+        content: '\f2f6';
+      }
+    }
+
+    &[href*="stdreportsearch"] {
+      &:before {
+        content: '\f234';
+      }
+    }
+
+    &[href*="academiccalendar"] {
+      &:before {
+        content: '\f073';
+      }
+    }
+
+    &[href*="calendar"]:not([href*="academiccalendar"]) {
+      &:before {
+        content: '\f073';
+        //noinspection CssNoGenericFontName
+        font-family: 'fa-regular';
+      }
+    }
+
+    &[href*="gsmis"] {
+      &:before {
+        content: '\f022';
+      }
+    }
+
+    &[href*="financial"] {
+      &:before {
+        content: '\f53d';
+      }
+    }
+
+    &[href*="teach_time"] {
+      &:before {
+        content: '\f508';
+      }
+    }
+
+    &[href*="room_time"]:not([href*="printfriendly"]) {
+      &:before {
+        content: '\f549';
+      }
+    }
+
+    &[href*="class_info"] {
+      &:before {
+        content: '\f518';
+      }
+    }
+
+    &[href*="class_status"] {
+      &:before {
+        content: '\f46c';
+      }
+    }
+
+    &[href*="registerGraduate"] {
+      &:before {
+        content: '\f501';
+      }
+    }
+    &[href*="graduate_date"] {
+      &:before {
+        content: '\f19d';
+      }
+    }
+    &[href*="thesis"] {
+      &:before {
+        content: '\f02d';
+      }
+    }
+    &[href*="feedback_allans"] {
+      &:before {
+        content: '\f086';
+      }
+    }
+    &[href*="enrollguide"] {
+      &:before {
+        content: '\f05a';
+      }
+    }
+    &[href*="downloadform"] {
+      &:before {
+        content: '\f019';
+      }
+    }
+    &[href*="regMis"] {
+      &:before {
+        content: '\f080';
+      }
+    }
+    &[href*="graduateList"] {
+      &:before {
+        content: '\f46d';
+      }
+    }
+    &[href*="RSS"] {
+      &:before {
+        content: '\f143';
+      }
+      img {
+        display: none;
+      }
+    }
+    &[href*="printfriendly"] {
+      &:before {
+        content: '\f02f';
+      }
+      img {
+        display: none;
+      }
+    }
+
+    // student page
+    &[href*="logout"] {
+      &:before {
+        content: '\f2f5';
+      }
+    }
+    &[href*="changepwd_link"] {
+      &:before {
+        content: '\f084';
+      }
+    }
+    &[href*="request_first"] {
+      &:before {
+        content: '\f570';
+      }
+    }
+    &[href*="enroll_result"] {
+      &:before {
+        content: '\f46c';
+      }
+    }
+    &[href*="biblio"] {
+      &:before {
+        content: '\f2bb';
+      }
+    }
+    &[href*="debt"] {
+      &:before {
+        content: '\f53d';
+      }
+    }
+    &[href*="grade"] {
+      &:before {
+        content: '\f091';
+      }
+    }
+    &[href*="regPrintVoucher"] {
+      &:before {
+        content: '\f571';
+      }
+    }
+    &[href*="sac_activity"] {
+      &:before {
+        content: '\f135';
+      }
+    }
+    &[href*="graduate_check"] {
+      &:before {
+        content: '\f0ae';
+      }
+    }
+    &[href*="time_table"] {
+      &:before {
+        content: '\f00b';
+      }
+    }
+    &[href*="studentByProgram"] {
+      &:before {
+        content: '\f0c0';
+      }
+    }
+    &[href*="requestdoc"] {
+      &:before {
+        content: '\f044';
+      }
+    }
+    &[href*="suggestion"] {
+      &:before {
+        content: '\f4ad';
+      }
+    }
+    &[href*="webuser_list"] {
+      &:before {
+        content: '\f1da';
+      }
+    }
+
+    // styled external link
+    &[href*="academiccalendar"],
+    &[href*="gsmis"],
+    &[href*="financial"],
+    &[href*="registerGraduate"],
+    &[href*="regMis"],
+    &[href*="graduateList"],
+    &[href*="regPrintVoucher"] {
+      &:after {
+        content: '\f35d';
+        opacity: 0.4;
+      }
+    }
+  }
+}

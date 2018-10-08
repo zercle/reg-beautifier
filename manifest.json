@@ -38,6 +38,9 @@
       ],
       "css": [
         "css/pages/home.css"
+      ],
+      "js": [
+        "js/pages/home.js"
       ]
     }
   ],
