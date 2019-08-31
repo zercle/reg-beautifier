@@ -272,6 +272,7 @@ figure {
 img {
   vertical-align: middle !important;
   border-style: none !important; // Remove the border on images inside links in IE 10-.
+  max-width: 100%; // Responsive image
 }
 
 svg {

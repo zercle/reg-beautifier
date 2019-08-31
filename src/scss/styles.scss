@@ -3,14 +3,22 @@
 @import "./mixins";
 @import "./reboot";
 @import "./fontawesome";
-
 @import "./components/sidebar";
 
 * {
-  font-family: inherit !important;
+  font-family: $font-family-sans-serif !important;
 }
 
-html, body {
+body div * {
+  font-family: $font-family-sans-serif !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
   margin: 0 !important;
   padding: 0 !important;
   background: $body-bg !important;
@@ -20,14 +28,29 @@ body {
   font-variant-numeric: tabular-nums !important;
 }
 
+font {
+  font-size: inherit;
+  color: inherit;
+  font-family: inherit;
+}
+
+u {
+  text-decoration: inherit !important;
+}
+
 table {
   width: 100% !important; // force responsive
 }
 
-table, tbody, tr, td { // reset
+table,
+tbody,
+tr,
+td {
+  // reset
   border: none !important;
   background-color: transparent !important;
 }
+
 td {
   padding: 0;
 }
@@ -38,147 +61,196 @@ td {
 }
 
 // Site Header, Site Logo
-#header {
+body #header {
   height: $site-header-height !important;
+  padding: initial;
   //noinspection CssUnknownTarget
-  background: $kku_color url('chrome-extension://__MSG_@@extension_id__/images/reg-logo.png') no-repeat !important;
+  background: $kku_color
+    url("chrome-extension://__MSG_@@extension_id__/images/reg-logo.png")
+    no-repeat !important;
   background-size: contain !important;
-}
-
-// Page Container
-#page {
-  background: transparent !important;
-
-  // Language Switcher Bar
-  > table:first-of-type {
-    height: $language-switcher-bar-height;
-    background-color: darken($kku_color, 5%) !important;
-  }
-
-  // Empty Table maybe Separator
-  > table:nth-of-type(2) {
+  .logo {
     display: none;
   }
+  .menu_button {
+    display: none;
+  }
+  .menu {
+    display: none;
+  }
+}
+body > div:nth-of-type(3) {
+  padding: 0 !important;
+}
 
-  // Main Container
-  > table:nth-of-type(3) {
-    > tbody {
-      > tr {
 
-        // Sidebar
-        > td:first-of-type {
-          @include sidebar;
+#header {
+  border-bottom: solid 16px darken($kku_color, 5%) !important;
+  > .wrapper {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    // Language Switcher
+    > .language {
+      margin: 1rem 1rem 0 0 !important;
+      bottom: 0;
+      > a {
+        color: rgba(white, 0.6) !important;
+
+        &:hover {
+          text-decoration: none !important;
+          color: white !important;
         }
+      }
+    }
+  }
+}
+div[align=center] > #wrapper {
+  width: 100vw !important;
+  padding: 0 !important;
+}
+#wrapper {
+  // Page Container
+  #page {
+    background: transparent !important;
 
-        // Main Content
-        > td:nth-of-type(2) {
+    // Language Switcher Bar
+
+    > table:first-of-type {
+      height: $language-switcher-bar-height;
+      background-color: darken($kku_color, 5%) !important;
+
+      a {
+        color: rgba(white, 0.6) !important;
+
+        &:hover {
+          text-decoration: none !important;
+          color: white !important;
+        }
+      }
+    }
+
+    // Empty Table maybe Separator
+    > table:nth-of-type(2) {
+      display: none;
+    }
+
+    // Main Container
+    > table:nth-of-type(3) {
+      min-height: calc(100vh - 209px);
+
+      > tbody {
+        > tr {
           display: flex;
-          width: 100% !important;
-          max-width: $content-container-max-width;
-          background-color: $white !important;
-          margin: 3rem auto;
-          padding: $card-padding;
-          flex-direction: column;
-          align-items: center;
-
-          @if $enable-rounded {
-            border-radius: $border-radius;
+          // Sidebar
+          > td:first-of-type#sidebar {
+            @include sidebar;
           }
 
-          > * {
+          // Main Content
+          > td:nth-of-type(2) {
+            display: inline-block;
+            width: 100% !important;
+            max-width: $content-container-max-width;
+            margin: 3rem auto;
+            padding: $card-padding;
+            align-items: center;
+            background-color: $white !important;
 
+            @if $enable-rounded {
+              border-radius: $border-radius;
+            }
 
+            > * {
+            }
+          }
+
+          // Empty Cell to set minimum height?
+          > td:last-of-type {
+            // display: none;
           }
         }
+      }
+    }
 
-        // Empty Cell to set minimum height?
-        > td:last-of-type {
+    // Footer 1
+    > table:nth-of-type(4) {
+      > tbody {
+        // Hide Clock Section
+        > tr:first-of-type {
           display: none;
         }
-      }
-    }
-  }
 
-  // Footer 1
-  > table:nth-of-type(4) {
-    > tbody {
+        > tr:last-of-type {
+          > td:first-of-type {
+            width: $sidebar-width;
+            background: $sidebar-bg !important;
+          }
 
-      // Hide Clock Section
-      > tr:first-of-type {
-        display: none;
-      }
-
-      > tr:last-of-type {
-        > td:first-of-type {
-          width: $sidebar-width;
-          background: $sidebar-bg !important;
-        }
-
-        > td:last-of-type {
-
-          text-align: center;
-          // To top page Button
-          > a[href="#top"] {
-            display: inline-block;
-            margin-bottom: 2rem;
-            font-size: .8rem;
-
-            // Remove default image
-            img {
-              display: none;
-            }
-
-            // Add arrow icon
-            &:before {
-              content: '\f0aa';
-              //noinspection CssNoGenericFontName
-              font-family: 'fa-solid';
-              font-size: 1.5rem;
+          > td:last-of-type {
+            text-align: right;
+            // To top page Button
+            > a[href="#top"] {
               display: inline-block;
-              vertical-align: middle;
-            }
+              margin-right: 2rem;
+              font-size: 0.8rem;
 
-            // Add text
-            &:after {
-              content: 'To top of page';
-              font-weight: bold;
-              display: inline-block;
-              margin-left: 4px;
-              vertical-align: middle;
-            }
+              // Remove default image
+              img {
+                display: none;
+              }
 
-            &:hover {
-              text-decoration: none;
+              // Add arrow icon
+              &:before {
+                content: "\f0aa";
+                display: inline-block;
+                //noinspection CssNoGenericFontName
+                font-family: "fa-solid";
+                font-size: 1.5rem;
+                vertical-align: middle;
+              }
+
+              // Add text
+              &:after {
+                content: "To top of page";
+                display: inline-block;
+                margin-left: 4px;
+                font-weight: bold;
+                vertical-align: middle;
+              }
+
+              &:hover {
+                text-decoration: none;
+              }
             }
           }
         }
       }
     }
-  }
 
-  // Footer 2
-  > table:last-of-type {
-    background-color: darken($kku_color, 5%) !important;
-    height: $site-footer-height;
-    > tbody {
-      > tr {
-        > td:last-of-type {
-          text-align: right;
-          &:after {
-            margin-right: 1rem;
-            content: 'REG Beautifier by Zercle';
-            font-size: .625rem;
-            font-weight: bold;
-            color: $white;
+    // Footer 2
+    > table:last-of-type {
+      height: $site-footer-height;
+      background-color: darken($kku_color, 5%) !important;
+
+      > tbody {
+        > tr {
+          > td:last-of-type {
+            text-align: right;
+
+            &:after {
+              content: "REG Beautifier by Zercle";
+              margin-right: 1rem;
+              font-size: 0.625rem;
+              font-weight: bold;
+              color: $white;
+            }
           }
         }
       }
     }
   }
 }
-
-
-
 /* -----------------
         Misc.
 ----------------- */
@@ -186,4 +258,93 @@ td {
 // Page Loading Indicator
 #waitDiv {
   display: none;
+}
+
+#btn_sidebar_toggle {
+  display: none;
+  height: 36px;
+  margin-top: 6px !important;
+  margin-left: 6px !important;
+  border: 1px solid darken($kku_color, 10%);
+  border-radius: $border-radius !important;
+  cursor: pointer;
+  background-color: transparent;
+
+  &:hover {
+    background-color: rgba(black, 0.2);
+  }
+}
+
+.Mainheadermsg {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.subMainheadermsg {
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  color: inherit !important;
+}
+
+.Detailmsg {
+  font-size: inherit !important;
+  color: inherit !important;
+}
+
+a[href*="facebook.com/share.php"] {
+  height: 20px;
+  padding: 3px 6px;
+  border: 1px solid rgba(0, 0, 0, 0.17);
+  border-radius: 3px;
+  font-size: 10px;
+  color: white !important;
+  background-color: #4267b2 !important;
+
+  &:before {
+    content: "\f39e";
+    margin-right: 6px;
+    //noinspection CssNoGenericFontName
+    font-family: "fa-brand";
+  }
+
+  &:after {
+    content: "Share";
+    font-weight: bold;
+  }
+
+  &:hover {
+    text-decoration: none !important;
+    color: white !important;
+    background-color: darken(#4267b2, 5%) !important;
+  }
+
+  img {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 767.98px) {
+  body > #header {
+    height: 3rem !important;
+    background-position-x: 50% !important;
+    border-bottom: none !important;
+  }
+
+  #btn_sidebar_toggle {
+    display: inline-block;
+  }
+}
+
+@media only screen and (max-width: 1180px) {
+  // remove margin of the main container
+  #page {
+    > table:nth-of-type(3) {
+      > tbody > tr {
+        > td:nth-of-type(2) {
+          margin: auto;
+        }
+      }
+    }
+  }
 }

@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "gulp",
+    "dev": "gulp",
     "build": "gulp build",
     "watch": "gulp watch:css"
   },

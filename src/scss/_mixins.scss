@@ -70,3 +70,14 @@
   }
 }
 
+@mixin page_title_with_icon($icon, $font-family: 'fa-solid') {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: $dark_navy;
+  &:before {
+    font-family: $font-family;
+    content: $icon;
+    margin-right: 0.5em;
+  }
+}
+

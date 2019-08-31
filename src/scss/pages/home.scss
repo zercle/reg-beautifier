@@ -1,28 +1,118 @@
 @import "../variables";
-
+@import "../mixins";
 // Page Container
-#page {
+#wrapper {
+  #page {
+    // Main Container
+    > table:nth-of-type(3) {
+      > tbody {
+        > tr {
+          // Main Content
+          > td:nth-of-type(2) {
+            // Empty table?
+            > div:first-of-type {
+              // marquee was disabled below Misc. section
+              display: none;
+            }
 
-  // Main Container
-  > table:nth-of-type(3) {
-    > tbody {
-      > tr {
-
-        // Main Content
-        > td:nth-of-type(2) {
-
-          // Empty table?
-          > table:first-of-type {
-            // marquee was disabled below Misc. section
-          }
-
-          // Notices table
-          > table:last-of-type {
-            > tbody {
+            // Notices table
+            > div:last-of-type {
+              margin: 0 !important;
 
               // Page Title
-              > tr:first-of-type {
+              > div:first-of-type {
+                @include page_title_with_icon("\f0a1");
+              }
 
+              > div {
+                > tr {
+                  display: block;
+                }
+
+                // Notice title
+                > tr[valign="top"] {
+                  margin-top: 1rem;
+                  color: $kku_color;
+                  > td:nth-child(2) {
+                    padding-top: 0.125rem;
+                    padding-right: 0.25rem;
+                  }
+
+                  // Urgent state label
+                  font[color="#FF0000"] {
+                    display: inline-block;
+                    //position: absolute;
+                    margin-left: 1rem;
+                    padding: 4px 6px;
+                    border: solid 1px $gray-200;
+                    border-radius: 0.125rem;
+                    font-size: 0.6em;
+                    white-space: nowrap;
+                    color: $red;
+                    background-color: $gray-100;
+                    &:before {
+                      content: "\f02b";
+                      margin-right: 0.5em;
+                      //noinspection CssNoGenericFontName
+                      font-family: "fa-solid";
+                    }
+                  }
+                }
+
+                // Notice details
+                > tr:nth-child(6n-3) {
+                  padding-left: 1.5rem;
+                  > td {
+                    padding: 0.25rem 0;
+                    font-size: 0.875rem !important;
+                    line-height: 1.75em;
+                    color: rgba($dark_navy, 0.75) !important;
+                  }
+                }
+
+                // Share button group
+                > tr:nth-child(6n-1) {
+                  float: right;
+                  margin-top: -0.75rem;
+
+                  > td > table > tbody > tr {
+                    display: flex;
+
+                    > td {
+                      display: flex;
+                    }
+
+                    > td:first-of-type {
+                      // Facebook share button
+                      > a[href*="facebook.com/share.php"] {
+                        margin-right: 4px;
+                      }
+
+                      // Twitter share button iFrame
+                      > iframe {
+                        //margin-right: 4px;
+                      }
+                    }
+
+                    > td:last-of-type {
+                      // Google plus share button
+                      display: none;
+                    }
+                  }
+                }
+
+                > tr:nth-of-type(6n) {
+                  padding-left: 1.5rem;
+                  //> td:nth-of-type(2) {
+                  //  display: none;
+                  //}
+                  > td:last-of-type {
+                    padding: 0.25rem 0.5rem;
+                    border-radius: 0.125rem;
+                    font-size: 0.75em;
+                    background-color: $gray-100 !important;
+                  }
+                }
               }
             }
           }

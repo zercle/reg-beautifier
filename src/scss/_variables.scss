@@ -1,15 +1,31 @@
 @import "./bootstrap-variables";
 
+$font-family-sans-serif:
+  // Safari for OS X and iOS (San Francisco)
+  -apple-system,
+  // Chrome < 56 for OS X (San Francisco)
+  BlinkMacSystemFont,
+  // Windows
+  "Segoe UI",
+  // Android
+  "Roboto",
+  // Basic web fallback
+  "Helvetica Neue", Arial, sans-serif,
+  // Emoji fonts
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+
 $kku_color: #A73B24;
 $dark_navy: #2A3A42;
 
 $primary: $kku_color;
 
+$body-color: rgba($dark_navy, 0.87);
 $body-bg: #EFEFEF;
 $sidebar-bg: $dark_navy;
 
 $link-color: $kku_color;
-$link-hover-color: darken($link-color, 15%);
+$link-decoration: none;
+$link-hover-color: darken($link-color, 10%);
 
 $sidebar-width: 13.75rem; // 220px
 $content-container-max-width: 60rem; // 960px

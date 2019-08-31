@@ -40,7 +40,7 @@
       }
     }
 
-    &[href*="gsmis"] {
+    &[href*="tqf"] {
       &:before {
         content: '\f022';
       }
@@ -213,6 +213,7 @@
     // styled external link
     &[href*="academiccalendar"],
     &[href*="gsmis"],
+    &[href*="tqf"],
     &[href*="financial"],
     &[href*="registerGraduate"],
     &[href*="regMis"],

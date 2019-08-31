@@ -34,7 +34,6 @@ gulp.task('font', gulp.series('clean:font', () => {
         .pipe(gulp.dest('dist/webfonts'));
 }));
 
-
 gulp.task('css', gulp.series('clean:css', () => {
     return gulp.src('src/scss/**/*.scss')
         .pipe(sourcemaps.init())
