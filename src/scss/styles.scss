@@ -133,7 +133,7 @@ div[align="center"] > #wrapper {
           padding: $card-padding;
           align-items: center;
           background-color: $white !important;
-
+          box-shadow: $card-shadow;
           @if $enable-rounded {
             border-radius: $border-radius;
           }

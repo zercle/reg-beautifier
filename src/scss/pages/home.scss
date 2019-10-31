@@ -14,9 +14,11 @@
             display: none;
           }
 
-          // Notices table
+          // Inner container
           > div:last-of-type {
             margin: 0 !important;
+            box-shadow: initial !important;
+            border-radius: initial !important;
 
             // Page Title
             > div:first-of-type {
