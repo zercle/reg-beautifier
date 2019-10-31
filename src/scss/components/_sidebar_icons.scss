@@ -46,6 +46,12 @@
       }
     }
 
+    &[href*="gsmis"] {
+      &:before {
+        content: '\f022';
+      }
+    }
+
     &[href*="financial"] {
       &:before {
         content: '\f53d';
