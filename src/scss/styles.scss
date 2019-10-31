@@ -83,7 +83,6 @@ body > div:nth-of-type(3) {
   padding: 0 !important;
 }
 
-
 #header {
   border-bottom: solid 16px darken($kku_color, 5%) !important;
   > .wrapper {
@@ -105,145 +104,100 @@ body > div:nth-of-type(3) {
     }
   }
 }
-div[align=center] > #wrapper {
+div[align="center"] > #wrapper {
   width: 100vw !important;
   padding: 0 !important;
 }
 #wrapper {
   // Page Container
-  #page {
-    background: transparent !important;
+  background: transparent !important;
 
-    // Language Switcher Bar
+  // Main Container
+  > table:nth-of-type(1) {
+    min-height: calc(100vh - 209px);
 
-    > table:first-of-type {
-      height: $language-switcher-bar-height;
-      background-color: darken($kku_color, 5%) !important;
+    > tbody {
+      > tr {
+        display: flex;
+        // Sidebar
+        > td:first-of-type {
+          @include sidebar;
+        }
 
-      a {
-        color: rgba(white, 0.6) !important;
+        // Main Content
+        > td:nth-of-type(2) {
+          display: inline-block;
+          width: 100% !important;
+          max-width: $content-container-max-width;
+          margin: 3rem auto;
+          padding: $card-padding;
+          align-items: center;
+          background-color: $white !important;
 
-        &:hover {
-          text-decoration: none !important;
-          color: white !important;
+          @if $enable-rounded {
+            border-radius: $border-radius;
+          }
+
+          > * {
+          }
+        }
+
+        // Empty Cell to set minimum height?
+        > td:last-of-type {
+          // display: none;
         }
       }
     }
+  }
 
-    // Empty Table maybe Separator
-    > table:nth-of-type(2) {
-      display: none;
-    }
+  // Footer 1
+  > table:nth-of-type(4) {
+    > tbody {
+      // Hide Clock Section
+      > tr:first-of-type {
+        display: none;
+      }
 
-    // Main Container
-    > table:nth-of-type(3) {
-      min-height: calc(100vh - 209px);
+      > tr:last-of-type {
+        > td:first-of-type {
+          width: $sidebar-width;
+          background: $sidebar-bg !important;
+        }
 
-      > tbody {
-        > tr {
-          display: flex;
-          // Sidebar
-          > td:first-of-type#sidebar {
-            @include sidebar;
-          }
-
-          // Main Content
-          > td:nth-of-type(2) {
+        > td:last-of-type {
+          text-align: right;
+          // To top page Button
+          > a[href="#top"] {
             display: inline-block;
-            width: 100% !important;
-            max-width: $content-container-max-width;
-            margin: 3rem auto;
-            padding: $card-padding;
-            align-items: center;
-            background-color: $white !important;
+            margin-right: 2rem;
+            font-size: 0.8rem;
 
-            @if $enable-rounded {
-              border-radius: $border-radius;
+            // Remove default image
+            img {
+              display: none;
             }
 
-            > * {
-            }
-          }
-
-          // Empty Cell to set minimum height?
-          > td:last-of-type {
-            // display: none;
-          }
-        }
-      }
-    }
-
-    // Footer 1
-    > table:nth-of-type(4) {
-      > tbody {
-        // Hide Clock Section
-        > tr:first-of-type {
-          display: none;
-        }
-
-        > tr:last-of-type {
-          > td:first-of-type {
-            width: $sidebar-width;
-            background: $sidebar-bg !important;
-          }
-
-          > td:last-of-type {
-            text-align: right;
-            // To top page Button
-            > a[href="#top"] {
+            // Add arrow icon
+            &:before {
+              content: "\f0aa";
               display: inline-block;
-              margin-right: 2rem;
-              font-size: 0.8rem;
-
-              // Remove default image
-              img {
-                display: none;
-              }
-
-              // Add arrow icon
-              &:before {
-                content: "\f0aa";
-                display: inline-block;
-                //noinspection CssNoGenericFontName
-                font-family: "fa-solid";
-                font-size: 1.5rem;
-                vertical-align: middle;
-              }
-
-              // Add text
-              &:after {
-                content: "To top of page";
-                display: inline-block;
-                margin-left: 4px;
-                font-weight: bold;
-                vertical-align: middle;
-              }
-
-              &:hover {
-                text-decoration: none;
-              }
+              //noinspection CssNoGenericFontName
+              font-family: "fa-solid";
+              font-size: 1.5rem;
+              vertical-align: middle;
             }
-          }
-        }
-      }
-    }
 
-    // Footer 2
-    > table:last-of-type {
-      height: $site-footer-height;
-      background-color: darken($kku_color, 5%) !important;
-
-      > tbody {
-        > tr {
-          > td:last-of-type {
-            text-align: right;
-
+            // Add text
             &:after {
-              content: "REG Beautifier by Zercle";
-              margin-right: 1rem;
-              font-size: 0.625rem;
+              content: "To top of page";
+              display: inline-block;
+              margin-left: 4px;
               font-weight: bold;
-              color: $white;
+              vertical-align: middle;
+            }
+
+            &:hover {
+              text-decoration: none;
             }
           }
         }

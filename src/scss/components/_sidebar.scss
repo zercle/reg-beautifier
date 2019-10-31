@@ -11,8 +11,8 @@
     color: inherit;
   }
 
-  #title {
-    display: block;
+  > #title {
+    display: block !important;
     > .title {
       margin-bottom: 0 !important;
       padding: 8px 16px;
@@ -21,16 +21,16 @@
     }
   }
 
-  #menu {
-    width: $sidebar-width;
-    height: calc(100% - 32px);
-    min-height: calc(100vh - 243px);
-    font-size: 0.8rem;
-    font-weight: normal;
-    background-color: $sidebar-bg;
-    border: none;
-    border-radius: 0;
-    margin: 0;
+  > #menu {
+    width: $sidebar-width !important;
+    height: calc(100% - 32px) !important;
+    min-height: calc(100vh - 243px) !important;
+    font-size: 0.8rem !important;
+    font-weight: normal !important;
+    background-color: $sidebar-bg !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
 
     ul {
       margin: 0 !important;
