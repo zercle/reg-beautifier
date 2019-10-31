@@ -1,26 +1,26 @@
 @import "./bootstrap-variables";
 
 $font-family-sans-serif:
-  // Safari for OS X and iOS (San Francisco)
-  -apple-system,
-  // Chrome < 56 for OS X (San Francisco)
-  BlinkMacSystemFont,
+  // Safari for OS X and iOS (San Francisco) -apple-system,
+  // Chrome < 56 for OS X (San Francisco) BlinkMacSystemFont,
   // Windows
-  "Segoe UI",
+    "Segoe UI",
   // Android
-  "Roboto",
+    "Roboto",
   // Basic web fallback
-  "Helvetica Neue", Arial, sans-serif,
+    "Helvetica Neue",
+  Arial, sans-serif,
   // Emoji fonts
-  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+    "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol" !default;
 
-$kku_color: #A73B24;
-$dark_navy: #2A3A42;
+$kku_color: #a73b24;
+$dark_navy: #2a3a42;
 
 $primary: $kku_color;
 
 $body-color: rgba($dark_navy, 0.87);
-$body-bg: #EFEFEF;
+$body-bg: #efefef;
 $sidebar-bg: $dark_navy;
 
 $link-color: $kku_color;
@@ -35,3 +35,5 @@ $language-switcher-bar-height: 1.5rem;
 $site-footer-height: 1.5rem;
 
 $card-padding: 1.25rem;
+
+$card-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
