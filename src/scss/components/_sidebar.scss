@@ -3,10 +3,14 @@
 
 @mixin sidebar {
   display: inline-block;
+  position:fixed;
+  left: 0;
   width: $sidebar-width !important;
+  height: calc(100vh - #{$site-header-height});
+  overflow-y: scroll;
   padding-left: 0;
   z-index: 2;
-
+  background-color: $sidebar-bg !important;
   font {
     color: inherit;
   }
@@ -24,7 +28,7 @@
   > #menu {
     width: $sidebar-width !important;
     height: calc(100% - 32px) !important;
-    min-height: calc(100vh - 243px) !important;
+    min-height: calc(100vh - #{$site-header-height} - #{$site-footer-height}) !important;
     font-size: 0.8rem !important;
     font-weight: normal !important;
     background-color: $sidebar-bg !important;

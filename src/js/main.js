@@ -1,5 +1,5 @@
 // Init sidebar
-let sidebar = document.querySelectorAll('#page > table:nth-of-type(3) > tbody > tr > td:first-of-type')[0];
+let sidebar = document.querySelectorAll('#wrapper > table > tbody > tr > td:nth-child(2)')[0];
 sidebar.setAttribute('id', 'sidebar');
 // Init responsive for mobile site
 const meta = document.createElement('meta');
@@ -8,7 +8,7 @@ meta.setAttribute('content', 'width=device-width, initial-scale=1.0');
 document.getElementsByTagName('head')[0].appendChild(meta);
 document.title = 'ระบบบริการการศึกษา มหาวิทยาลัยขอนแก่น';
 
-let header = document.querySelectorAll('#header')[0];
+let header = document.querySelectorAll('#header > .wrapper')[0];
 
 let btn_sidebar_toggle = document.createElement('button');
 btn_sidebar_toggle.setAttribute('id', 'btn_sidebar_toggle');

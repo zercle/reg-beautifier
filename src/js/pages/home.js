@@ -1,5 +1,5 @@
 /* Edit page title */
-let noticeTitle = document.querySelectorAll('#page > table:nth-child(5) > tbody > tr > td:nth-child(3) > div:nth-child(2) > div:nth-child(1)');
+let noticeTitle = document.querySelectorAll('#wrapper > table > tbody > tr > td:nth-child(3) > div:nth-child(2) > div:nth-child(1)');
 // let noticeTitle = document.querySelectorAll('td.Mainheadermsg');
 
 if (noticeTitle) {
