@@ -29,11 +29,10 @@ $link-color: $kku_color;
 $link-decoration: none;
 $link-hover-color: darken($link-color, 10%);
 
-$sidebar-width: 13.75rem; // 220px
-$content-container-max-width: 60rem; // 960px
+$sidebar-width: 220px;
+$content-container-max-width: 960px;
 
-$site-header-height: 6rem;
-$language-switcher-bar-height: 1.5rem;
+$site-header-height: 64px;
 $site-footer-height: 1.5rem;
 
 $card-padding: 1.25rem;

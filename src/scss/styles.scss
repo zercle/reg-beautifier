@@ -60,39 +60,53 @@ td {
   background-color: transparent !important;
 }
 
-// Site Header, Site Logo
-body #header {
-  height: $site-header-height !important;
-  padding: initial;
-  //noinspection CssUnknownTarget
-  background: $kku_color
-    url("chrome-extension://__MSG_@@extension_id__/images/reg-logo.png")
-    no-repeat !important;
-  background-size: contain !important;
-  .logo {
-    display: none;
-  }
-  .menu_button {
-    display: none;
-  }
-  .menu {
-    display: none;
-  }
-}
 body > div:nth-of-type(3) {
   padding: 0 !important;
 }
 
-#header {
-  border-bottom: solid 16px darken($kku_color, 5%) !important;
+// Site Header, Site Logo
+body > #header {
+  position: fixed;
+  top: 0;
+  border-bottom: none !important;
+  z-index: 4;
+  height: $site-header-height !important;
+  padding: initial;
+  //noinspection CssUnknownTarget
+  background-color: $kku_color !important;
+  background-size: contain !important;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+
   > .wrapper {
+    display: flex;
     width: 100% !important;
     height: 100% !important;
+    padding: 0 1rem;
     margin: 0 !important;
+    flex-direction: row-reverse;
+    align-items: center;
+    place-content: space-between;
+
+    .logo {
+      height: $site-header-height;
+      width: 240px;
+      background: url("chrome-extension://__MSG_@@extension_id__/images/reg-logo.png") no-repeat !important;
+      background-size: contain !important;
+      > img {
+        display: none;
+      }
+    }
+    .menu_button {
+      display: none;
+    }
+    .menu {
+      display: none;
+    }
+
     // Language Switcher
     > .language {
-      margin: 1rem 1rem 0 0 !important;
-      bottom: 0;
+      // margin: 1rem 1rem 0 0 !important;
       > a {
         color: rgba(white, 0.6) !important;
 
@@ -104,17 +118,20 @@ body > div:nth-of-type(3) {
     }
   }
 }
-div[align="center"] > #wrapper {
-  width: 100vw !important;
-  padding: 0 !important;
+div[align="center"] {
+  margin-block-start: $site-header-height;
+  > #wrapper {
+    width: 100vw !important;
+    padding: 0 !important;
+  } 
 }
-#wrapper {
+div[align="center"] > #wrapper {
   // Page Container
   background: transparent !important;
 
   // Main Container
   > table:nth-of-type(1) {
-    min-height: calc(100vh - 209px);
+    min-height: calc(100vh - #{$site-header-height} - #{$site-footer-height});
 
     > tbody {
       > tr {
@@ -126,13 +143,14 @@ div[align="center"] > #wrapper {
 
         // Main Content
         > td:nth-of-type(2) {
+          margin-inline-start: $sidebar-width;
+          width: calc(100vw - #{$sidebar-width}) !important;
           display: inline-block;
-          width: 100% !important;
-          max-width: $content-container-max-width;
-          margin: 3rem auto;
-          padding: $card-padding;
+          // max-width: $content-container-max-width;
+          // margin: 3rem auto;
+          // padding: $card-padding;
           align-items: center;
-          background-color: $white !important;
+          background-color: transparent !important;
           box-shadow: $card-shadow;
           @if $enable-rounded {
             border-radius: $border-radius;
