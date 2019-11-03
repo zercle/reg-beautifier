@@ -1,4 +1,3 @@
-
 // Toggles
 //
 // Used in conjunction with global variables to enable certain theme features.
@@ -70,7 +69,7 @@
   }
 }
 
-@mixin page_title_with_icon($icon, $font-family: 'fa-solid') {
+@mixin page_title_with_icon($icon, $font-family: "fa-solid") {
   font-size: 1.5rem;
   font-weight: bold;
   color: $dark_navy;
@@ -81,3 +80,12 @@
   }
 }
 
+@mixin card() {
+  background-color: white !important;
+  box-shadow: $card-shadow;
+  max-width: 960px;
+  padding: $card-padding !important;
+  @if $enable-rounded {
+    border-radius: $border-radius !important;
+  }
+}
