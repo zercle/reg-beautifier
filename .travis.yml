@@ -4,4 +4,7 @@ node_js:
 before_script:
 - yarn global add gulp-cli
 script: gulp
-
+cache:
+  yarn: false
+  directories:
+  - "node_modules"
