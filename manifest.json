@@ -49,6 +49,15 @@
       "js": [
         "js/pages/home.js"
       ]
+    },
+    {
+      "matches": [
+        "*://reg.kku.ac.th/registrar/login.asp*",
+        "*://reg-mirror.kku.ac.th/registrar/login.asp*"
+      ],
+      "css": [
+        "css/pages/login.css"
+      ]
     }
   ],
   "background": {
