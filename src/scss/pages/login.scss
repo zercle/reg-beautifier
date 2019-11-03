@@ -9,7 +9,11 @@ div[align="center"] > #wrapper {
       > tr {
         // Main Content
         > td:nth-of-type(2) {
-
+          > form {
+            margin: 3rem auto !important;
+            @include card;
+            max-width: 360px;
+          }
         }
       }
     }
@@ -19,3 +23,13 @@ div[align="center"] > #wrapper {
 /* -----------------
         Misc.
 ----------------- */
+input[type="radio"] {
+  cursor: pointer;
+  margin-right: 12px !important;
+}
+
+input[type="submit"] {
+  width: 100%;
+  margin-top: 16px !important;
+  margin-bottom: 24px !important;
+}

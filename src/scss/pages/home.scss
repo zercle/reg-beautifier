@@ -34,7 +34,7 @@ div[align="center"] > #wrapper {
             }
             > div:last-of-type {
               margin: 3rem auto !important;
-              @include card();
+              @include card;
 
               > table > tbody {
                 > tr {
