@@ -22,6 +22,7 @@ body {
   margin: 0 !important;
   padding: 0 !important;
   background: $body-bg !important;
+  font-size: 16px;
 }
 
 body {
@@ -148,22 +149,17 @@ div[align="center"] > #wrapper {
           display: inline-block;
           // max-width: $content-container-max-width;
           // margin: 3rem auto;
-          // padding: $card-padding;
+          padding: 0;
           align-items: center;
           background-color: transparent !important;
-          box-shadow: $card-shadow;
-          @if $enable-rounded {
-            border-radius: $border-radius;
-          }
+          
+          border-radius: 0 !important;
 
-          > * {
+          > div {
+            box-shadow: none !important;
           }
         }
 
-        // Empty Cell to set minimum height?
-        > td:last-of-type {
-          // display: none;
-        }
       }
     }
   }
