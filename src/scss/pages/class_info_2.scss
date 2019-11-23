@@ -1,0 +1,395 @@
+@import "../variables";
+@import "../mixins";
+
+
+// Page Container
+div[align="center"] > #wrapper {
+  // Main Container
+  > table:nth-of-type(1) {
+    > tbody {
+      > tr {
+        // Main Content
+        > td:nth-of-type(2) {
+          > table:first-of-type { // Class description container
+            @include card;
+            margin: 3rem auto 0;
+            display: block !important;
+            padding-bottom: 0 !important;
+            border-radius: $border-radius $border-radius 0 0 !important;
+            > tbody {
+              display: block !important;
+              > tr {
+                display: block !important;
+                > td:first-child {
+                  display: none;
+                }
+                > td:nth-child(2) { // Class description
+                  display: block !important;
+                  > table {
+                    @include to_card_edge($card-padding);
+                    margin-block-start: $card-padding;
+                    //margin-bottom: 0;
+                    > tbody {
+                      > tr {
+                        > td {
+                          padding-top: 0.75rem;
+                        }
+                        > td:nth-child(2) {
+                          padding-left: 1.5rem;
+                        }
+                      }
+                      > tr:first-child { // course id and eng. course name
+                        font {
+                          font-size: 1.5rem;
+                        }
+                        > td {
+                          padding-top: 0;
+                          padding-left: 1.5rem;
+                          &:first-child {
+                            width: 90px;
+                          }
+                          &:nth-child(2) { // eng. course name
+                            padding-right: 1.5rem;
+                            white-space: nowrap;
+                          }
+                        }
+                      }
+                      > tr:nth-child(2) { // th. course name
+                        border-bottom: solid 1px $gray_200 !important;
+                        > td {
+                          padding-top: 0.25rem;
+                          padding-bottom: 1rem;
+                          > font {
+                            font-size: 1.25rem;
+                          }
+                        }
+
+                      }
+                      > tr:not(:first-child):not(:nth-child(2)):not(:last-child) {
+                        > td {
+                          padding-top: 0.75rem;
+                          padding-bottom: 0.25rem;
+                          color: rgba(black, 0.6);
+                          background-color: $gray-200 !important;
+
+                          &:nth-child(2) {
+                            width: 150px;
+                            padding-right: 0.75rem;
+                            font-weight: bold;
+                            //text-align: right;
+                          }
+
+                          &:nth-child(3) {
+                            a[href*="course_infomain"] {
+                              margin-left: -8px;
+                            }
+                          }
+                        }
+                      }
+
+                      > tr:nth-last-child(2) {
+                        > td {
+                          padding-bottom: 0.75rem !important;
+
+                        }
+                      }
+
+                      > tr:last-child { // switch semester
+                        > td {
+                          background-color: $gray-200 !important;
+                        }
+                        > td:first-child {
+                          //display: none;
+                        }
+                        > td:nth-child(2) {
+                          padding: 1.5rem;
+                          > a:first-of-type {
+                            margin-left: 12px;
+                          }
+                        }
+
+                        > td[colspan="4"] { // on registering period
+                          display: table-cell;
+                          padding: 0.5rem $card-padding;
+                          background-color: $gray-100 !important;
+                          color: $gray-600;
+                          &:before {
+                            content: '\f05a';
+                            font-family: fa-solid;
+                            margin-right: 0.5em;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+          }
+          > table:nth-of-type(2) { // class container
+            @include card();
+            @include to_card_edge($card-padding);
+            border-radius: 0 !important;
+            margin: $card-padding auto 0;
+            > tbody {
+              > tr {
+                > td:first-child {
+                  display: none;
+                }
+
+                > td:nth-child(2) {
+                  padding: 0 !important;
+                  > table { // class inner container
+                    > tbody {
+                      > tr {
+                        > td:first-child {
+                          display: none;
+                        }
+                      }
+                      > tr:first-child { // campus title
+                        > td {
+                          font {
+                            font-size: 1.25rem !important;
+                            b {
+                              font-weight: bold !important;
+                            }
+                          }
+
+                          &:before {
+                            content: '\f3c5';
+                            font-family: 'fa-solid';
+                            margin-right: 8px;
+                          }
+
+                          padding: 24px;
+                        }
+                      }
+                      > tr:not(:first-child) { // degree row
+                        > td[bgcolor="#FFFFF0"] {
+                          padding: 1rem 1.5rem;
+                          background-color: $dark_navy !important;
+                          color: rgba(white, 0.87) !important;
+                          > font {
+                            font-size: 1rem;
+                            color: rgba(white, 0.87) !important;
+                            > font > b {
+                              font-weight: normal !important;
+                            }
+                          }
+                        }
+                      }
+
+                      > tr.HeaderDetail { // table header
+                        > td {
+                          padding: 0.5rem;
+                          background-color: $gray-200 !important;
+                          &:nth-child(2) {
+                            padding-left: 1.5rem;
+                          }
+                          &:nth-child(7), &:nth-child(8), &:nth-child(9), &:nth-child(10) { // center column
+                            text-align: center !important;
+                          }
+                          &[bgcolor="#F0F0F0"] {
+                            vertical-align: bottom !important;
+                          }
+                        }
+                      }
+
+                      > tr:not(:first-child) {
+                        > td:not([bgcolor="#F0F0F0"]):not([bgcolor="#FFFFF0"]) { // section data
+                          padding: 0.5rem;
+                          vertical-align: top;
+                          &:nth-child(2) {
+                            padding-left: 1.5rem;
+                            padding-top: 0.25rem;
+                            text-align: center !important;
+                            > font {
+                              font-size: 1.25rem;
+                              font-weight: bold;
+                            }
+                          }
+                        }
+                      }
+                      > tr:not(.NormalDetail):not([bgcolor="#F5f5f5"]) {
+                        > td:not([bgcolor="#F0F0F0"]):not([bgcolor="#FFFFF0"]) { // first row of each section
+                          padding-top: 0.75rem;
+                          border-top: solid 1px $gray-300 !important;
+                          &:nth-child(7), &:nth-child(8), &:nth-child(10), &:nth-child(12), &:nth-child(13), &:nth-child(14) {
+                            text-align: center !important;
+                          }
+                          &:nth-child(9) {
+                            text-align: right !important;
+                          }
+                          &:nth-child(11) {
+                            text-align: left !important;
+                          }
+                          &:nth-child(4) {
+                            > font {
+                              font-size: 1rem;
+                              font-weight: bold;
+                            }
+                          }
+                          &:last-child {
+                            font[color="#FF0000"] {
+                              color: $danger !important;
+                            }
+                          }
+                        }
+
+                        ~ tr {
+                          > td:not([bgcolor="#F0F0F0"]):not([bgcolor="#FFFFF0"]) {
+                            &:nth-child(7), &:nth-child(8), &:nth-child(9), &:nth-child(10), &:nth-child(11), &:nth-child(12), &:nth-child(13), &:nth-child(14) {
+                              text-align: center !important;
+                            }
+                            &:nth-child(9) {
+                              text-align: right !important;
+                            }
+                            &:nth-child(11) {
+                              text-align: left !important;
+                            }
+                            &:nth-child(4) {
+                              > font {
+                                font-size: 1rem;
+                                font-weight: bold;
+                              }
+                            }
+                          }
+                        }
+                      }
+
+                      > tr.NormalDetail {
+                        color: $gray-600 !important;
+                        > td {
+                          vertical-align: top;
+                          &:nth-child(6) {
+                            text-align: center;
+                            white-space: nowrap;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          > br {
+            display: none;
+          }
+
+          > font:last-child { // table description when there is no class data
+            display: block;
+            @include card;
+            @include to_card_edge($card-padding);
+            margin: $card-padding auto 3rem;
+            padding-top: 0 !important;
+            border-radius: 0 0 $border-radius $border-radius !important;
+            > center {
+              display: flex;
+              align-items: center;
+              flex-direction: column;
+              padding: 48px 24px;
+              font-size: 1rem;
+              color: $gray-500;
+              > b {
+                font-weight: normal !important;
+              }
+              &:before {
+                font-size: 3rem;
+                content: '\f06a';
+                font-family: 'fa-solid';
+                color: $gray-500;
+                margin-bottom: 1rem;
+              }
+            }
+            > table:last-child { // hide table description
+              display: none;
+            }
+          }
+
+          > table:last-child { // table description
+            @include card;
+            @include to_card_edge($card-padding);
+            margin: 0 auto 3rem;
+            border-block-start: solid 1px rgba(0, 0, 0, .1) !important;
+            > tbody {
+              > tr {
+                > td:first-child {
+                  display: none;
+                }
+                > td:last-child {
+                  padding: 1.5rem;
+                  color: $gray-600 !important;
+                  line-height: 1.5rem;
+                  background-color: $gray-200 !important;
+                  border-radius: 0 0 $border-radius $border-radius !important;
+                  > br {
+                    display: none;
+                  }
+                  font {
+                    color: $gray-600 !important;
+                  }
+                  > font > b:first-of-type {
+                    display: block;
+                    font-size: 1rem;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* -----------------
+        Misc.
+----------------- */
+a[href*="student_inclass"] {
+  &:before {
+    content: '\f0c0';
+    font-family: 'fa-solid';
+  }
+  &:hover {
+    text-decoration: none !important;
+  }
+  > img {
+    display: none;
+  }
+}
+
+a[href*="class_info_2"][href*="Semester="] {
+  &:nth-last-child(2) {
+    &:hover {
+      text-decoration: none !important;
+    }
+    &:before {
+      content: '\f359';
+      font-family: 'fa-solid';
+      font-size: 1.5rem;
+      margin-left: 0.5em;
+      margin-right: 0.15em;
+    }
+    > img {
+      display: none;
+    }
+  }
+  &:last-child {
+    &:before {
+      content: '\f35a';
+      font-family: 'fa-solid';
+      font-size: 1.5rem;
+      margin-left: 0.25em;
+      margin-right: 0.5em;
+    }
+    &:hover {
+      text-decoration: none !important;
+    }
+    > img {
+      display: none;
+    }
+  }
+}

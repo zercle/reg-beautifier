@@ -42,8 +42,7 @@
 
 @mixin to_card_edge($padding) {
   width: calc(100% + (2 * #{$padding})) !important;
-  margin-left: -$padding;
-  margin-bottom: -$padding;
+  margin: -$padding;
 }
 
 @mixin relocate_username() {
@@ -86,6 +85,6 @@
   max-width: 960px;
   padding: $card-padding !important;
   @if $enable-rounded {
-    border-radius: $border-radius !important;
+    border-radius: $border-radius;
   }
 }

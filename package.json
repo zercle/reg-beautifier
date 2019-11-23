@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "gulp",
     "build": "gulp build",
-    "watch": "gulp watch:css"
+    "watch": "gulp watch"
   },
   "dependencies": {},
   "devDependencies": {

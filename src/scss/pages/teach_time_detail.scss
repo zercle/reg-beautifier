@@ -1,0 +1,213 @@
+@import "../variables";
+@import "../mixins";
+@import "../components/navigation";
+@import "../components/timetable";
+
+// Page Container
+div[align="center"] > #wrapper {
+  // Main Container
+  > table:nth-of-type(1) {
+    > tbody {
+      > tr {
+        // Main Content
+        > td:nth-of-type(2) {
+          > table:first-of-type {
+            display: block;
+            @include card;
+            margin: 3rem auto 0;
+            border-radius: $border-radius $border-radius 0 0;
+            > tbody {
+              display: flex;
+              > tr {
+                &:first-child {
+                  display: none;
+                }
+                &:nth-child(2) {
+                  display: flex;
+                  place-content: space-between;
+                  width: 100%;
+                  > td {
+                    &:first-child {
+                      display: none;
+                    }
+                    &:nth-child(2) { // teacher name
+                      font-size: 1.25rem !important;
+                    }
+                    &:nth-child(3) { // switch semester
+                      font {
+                        font-size: 1.25rem !important;
+                      }
+                      a {
+                        font-size: 1rem !important;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          > table:nth-of-type(2) {
+            @include card;
+            margin: 0 auto;
+            border-radius: 0 0 $border-radius $border-radius;
+            > tbody {
+              > tr {
+                &:first-child {
+                  > td {
+                    &:first-child {
+                      display: none;
+                    }
+
+                    > table { // timetable
+
+                    }
+                  }
+                }
+              }
+            }
+          }
+          > br {
+            display: none;
+          }
+          > div:last-child {
+            @include card;
+            margin: 0 auto 3rem;
+            border-radius: 0 0 $border-radius $border-radius;
+            > br {
+              display: none;
+            }
+            > table {
+              @include to_card_edge($card-padding);
+              margin-block-end: 0;
+              > tbody {
+                > tr {
+                  > td {
+                    > table { // exam container
+                      > tbody {
+                        > tr {
+                          > td {
+                            text-align: left !important;
+                            padding-block-start: $card-padding;
+                            > font {
+                              font-size: 1.25rem;
+                              font-weight: bold;
+                              color: $dark_navy;
+                              margin-inline-start: $card-padding;
+
+                              &:before {
+                                content: '\f5a1';
+                                font-family: 'fa-solid';
+                                margin-inline-end: 0.5rem;
+                              }
+
+                              > table { // exam table
+                                margin-top: 1rem;
+                                > tbody {
+                                  > tr {
+                                    > td {
+                                      > table {
+                                        > tbody {
+                                          > tr {
+                                            > td {
+                                              > table {
+                                                > tbody {
+                                                  > tr {
+                                                    > td {
+                                                      text-align: center !important;
+                                                      &:first-child, &:nth-child(2) {
+                                                        text-align: left !important;
+                                                      }
+                                                    }
+                                                    > td:first-child {
+                                                      padding-left: 1.5rem !important;
+                                                    }
+                                                    > td:last-child {
+                                                      padding-right: 1.5rem !important;
+                                                    }
+                                                  }
+                                                  > tr:first-child { // header row
+                                                    > td {
+                                                      padding: .75rem;
+                                                      vertical-align: bottom;
+                                                      border-top: 1px solid $gray-300 !important;
+                                                      border-bottom: 2px solid $gray-300 !important;
+                                                      background-color: $dark_navy !important;
+                                                      color: rgba(white, 0.87) !important;
+                                                      white-space: nowrap;
+
+                                                    }
+                                                  }
+
+                                                  > tr:not(:first-child) { // every data row
+                                                    > td {
+                                                      padding: .75rem;
+                                                      vertical-align: top;
+                                                      border-top: 1px solid $gray-300 !important;
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                    > font { // exam table help text
+                      display: block;
+                      padding: 1.5rem;
+                      color: $gray-600 !important;
+                      background-color: $gray-200 !important;
+                    }
+                  }
+                }
+              }
+            }
+            > font { // email section
+              > br {
+                display: none;
+              }
+              > font {
+                display: block;
+                padding: 1.5rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* -----------------
+        Misc.
+----------------- */
+table.timeheader + font {
+  display: block;
+  padding: 1.5rem;
+  background-color: $gray-100 !important;
+}
+
+
+a[href*="d1=1"]:not([href*="printfriendly"]), a[href*="d2=1"]:not([href*="printfriendly"]) {
+  &:hover {
+    text-decoration: none !important;
+  }
+  &:before {
+    content: '\f359';
+    font-family: 'fa-solid';
+    font-size: 1.5em;
+    margin-left: 0.5em;
+    margin-right: 0.25em;
+  }
+  > img {
+    display: none;
+  }
+}
