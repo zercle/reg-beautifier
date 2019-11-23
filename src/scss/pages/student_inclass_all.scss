@@ -1,0 +1,205 @@
+@import "../variables";
+@import "../mixins";
+
+// Page Container
+div[align="center"] > #wrapper {
+  // Main Container
+  > table:nth-of-type(1) {
+    > tbody {
+      > tr {
+        // Main Content
+        > td:nth-of-type(2) {
+          > table {
+            > tbody {
+              > tr {
+                > td:first-of-type {
+                  display: none;
+                }
+                > td:last-of-type {
+                  > font.Pagename {
+                    display: block;
+                    @include card;
+                    margin: 3rem auto;
+                    > table:first-child { // page info table
+                      @include to_card_edge($card-padding);
+                      margin-block-end: $card-padding;
+                      > tbody {
+                        > tr {
+                          > td {
+                            background-color: $gray-200 !important;
+                            padding: 0.25rem;
+
+                            &:first-child {
+                              padding-left: $card-padding;
+                              width: 200px;
+                              //text-align: right;
+                              color: $gray-600;
+                            }
+                            &:last-child {
+                              padding-left: 0.75rem;
+                              padding-right: $card-padding;
+                              color: $gray-700;
+                            }
+                          }
+
+                          &:first-child { // tr first child
+                            > td {
+                              background-color: transparent !important;
+                              padding-top: 1.5rem;
+                              &:nth-child(2) {
+                                font-size: 1.25rem;
+                              }
+                            }
+                          }
+                          &:nth-child(2) { // tr first child
+                            > td {
+                              background-color: transparent !important;
+                              padding-block-end: 1.5rem;
+                            }
+                            > td:nth-child(2) {
+                              font-size: 1.25rem;
+                            }
+                          }
+                          &:nth-child(3) {
+                            > td {
+                              padding-block-start: 1.5rem;
+                            }
+                          }
+                          &:last-child {
+                            > td {
+                              padding-block-end: 1.5rem;
+                            }
+                          }
+                        }
+                      }
+                    }
+                    > table:nth-child(2) { // data table
+                      @include to_card_edge($card-padding);
+                      margin-block-end: $card-padding;
+                      > tbody {
+                        > tr {
+                          > td {
+                            padding: 0.75rem;
+                            color: $gray-700;
+                          }
+                          > td:first-child {
+                            padding-left: 1.5rem;
+                          }
+                          > td:last-child {
+                            padding-right: 1.5rem;
+                          }
+                        }
+                        > tr:first-child { // export row
+                          > td {
+                            color: $gray-600;
+                            padding: 1.5rem;
+                            > a {
+                              margin-left: 0.75rem;
+                              font-size: 1.5rem;
+                              color: $gray-500 !important;
+                              &:hover {
+                                text-decoration: none;
+                              }
+                              &:before {
+                                font-family: 'fa-solid';
+                              }
+                              > img {
+                                display: none;
+                              }
+                            }
+                            > a[href*="RTF"] {
+                              &:before {
+                                content: '\f1c2';
+                              }
+                              &:hover {
+                                color: $primary !important;
+                              }
+                            }
+                            > a[href*="Excel"] {
+                              &:before {
+                                content: '\f1c3';
+                              }
+                              &:hover {
+                                color: $success !important;
+                              }
+                            }
+                          }
+                        }
+                        > tr:not(:first-child) {
+                          > td {
+                            border-top: solid 1px $gray-300 !important;
+                          }
+                          > td[colspan="6"] {
+                            background-color: $gray-300 !important;
+                            font-size: 1rem;
+                            font-weight: bold;
+                            color: $gray-800;
+
+                            &:before {
+                              content: '\f0e8';
+                              font-family: fa-solid;
+                              margin-right: 0.5em;
+                            }
+                          }
+                        }
+                        > tr.tableHeaderDetail {
+                          > td {
+                            vertical-align: bottom;
+                            background-color: $dark_navy !important;
+                            color: rgba(white, 0.87) !important;
+                            a {
+                              color: rgba(white, 0.87) !important;
+                            }
+
+                            img[src*="pull_down"] {
+                              display: none;
+                            }
+
+                            img[src*="pull_down"] + a {
+                              &:before {
+                                content: '\f15d';
+                                font-family: fa-solid;
+                                margin-right: 0.5em;
+                              }
+                            }
+                          }
+                        }
+                        > tr:not(:first-child) {
+                          > td:nth-child(2), > td:nth-child(4), > td:nth-child(5), > td:nth-child(6) {
+                            text-align: center !important;
+                          }
+                          > td:first-child:not([colspan="6"]) {
+                            text-align: right !important;
+                          }
+                          > td:nth-child(3) {
+                            text-align: left !important;
+                          }
+                        }
+                      }
+                    }
+                    > font.NormalDetail:nth-child(3) {
+                      @include to_card_edge($card-padding);
+                      display: block;
+                      padding: $card-padding;
+                      background-color: $gray-200;
+                      color: $gray-600 !important;
+                      font-weight: normal;
+                      line-height: 1.5rem;
+                      margin-block-end: -$card-padding;
+                      border-block-start: solid 1px rgba(0, 0, 0, .1);
+                      border-radius: 0 0 $border-radius $border-radius;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* -----------------
+        Misc.
+----------------- */

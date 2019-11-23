@@ -22,15 +22,17 @@ div[align="center"] > #wrapper {
           > div:last-of-type {
             margin: 0 !important;
             border-radius: 0 !important;
+            box-shadow: none !important;
             > div:first-of-type {
-              height: $site-header-height;
-              display: flex;
-              align-items: center;
-              border-radius: 0 !important;
-              background-color: $kku_color !important;
-              font-size: 1.25em;
-              padding: 0 1em !important;
-              @include page_title_with_icon("\f0a1");
+              //height: $site-header-height;
+              //display: flex;
+              //align-items: center;
+              //border-radius: 0 !important;
+              //background-color: $kku_color !important;
+              //font-size: 1.25em;
+              //padding: 0 1em !important;
+              //@include page_title_with_icon("\f0a1");
+              display: none;
             }
             > div:last-of-type {
               margin: 3rem auto !important;

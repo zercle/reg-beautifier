@@ -29,35 +29,98 @@
         "*://reg.kku.ac.th/*",
         "*://reg-mirror.kku.ac.th/*"
       ],
-      "css": [
-        "css/styles.css"
+      "css": ["css/styles.css"],
+      "js": ["js/main.js"]
+    }, {
+      "matches": [
+        "*://reg.kku.ac.th/registrar/calendar.asp*",
+        "*://reg-mirror.kku.ac.th/registrar/calendar.asp*"
       ],
-      "js": [
-        "js/main.js"
-      ]
-    },
-    {
+      "css": ["css/pages/calendar.css"],
+      "js": ["js/pages/calendar.js"]
+    }, {
+      "matches": [
+        "*://reg.kku.ac.th/registrar/class_info.asp*",
+        "*://reg-mirror.kku.ac.th/registrar/class_info.asp*"
+      ],
+      "css": ["css/pages/class_info.css"],
+      "js": ["js/pages/class_info.js"]
+    }, {
+      "matches": [
+        "*://reg.kku.ac.th/registrar/class_info_1.asp*",
+        "*://reg-mirror.kku.ac.th/registrar/class_info_1.asp*"
+      ],
+      "css": ["css/pages/class_info_1.css"],
+      "js": ["js/pages/class_info_1.js"]
+    }, {
+      "matches": [
+        "*://reg.kku.ac.th/registrar/class_info_2.asp*",
+        "*://reg-mirror.kku.ac.th/registrar/class_info_2.asp*"
+      ],
+      "css": ["css/pages/class_info_2.css"],
+      "js": ["js/pages/class_info_2.js"]
+    }, {
+      "matches": [
+        "*://reg.kku.ac.th/registrar/course_infomain.asp*",
+        "*://reg-mirror.kku.ac.th/registrar/course_infomain.asp*"
+      ],
+      "css": ["css/pages/course_infomain.css"],
+      "js": ["js/pages/course_infomain.js"]
+    }, {
       "matches": [
         "*://reg.kku.ac.th/registrar/home.asp*",
         "*://reg.kku.ac.th/registrar/HOME.asp*",
         "*://reg-mirror.kku.ac.th/registrar/home.asp*",
         "*://reg-mirror.kku.ac.th/registrar/HOME.asp*"
       ],
-      "css": [
-        "css/pages/home.css"
-      ],
-      "js": [
-        "js/pages/home.js"
-      ]
-    },
-    {
+      "css": ["css/pages/home.css"],
+      "js": ["js/pages/home.js"]
+    }, {
       "matches": [
         "*://reg.kku.ac.th/registrar/login.asp*",
         "*://reg-mirror.kku.ac.th/registrar/login.asp*"
       ],
-      "css": [
-        "css/pages/login.css"
-      ]
+      "css": ["css/pages/login.css"],
+      "js": ["js/pages/login.js"]
+    }, {
+      "matches": [
+        "*://reg.kku.ac.th/registrar/room_time.asp*",
+        "*://reg-mirror.kku.ac.th/registrar/room_time.asp*",
+        "*://reg.kku.ac.th/registrar/room_timeall.asp*",
+        "*://reg-mirror.kku.ac.th/registrar/room_timeall.asp*"
+      ],
+      "css": ["css/pages/room_time.css"],
+      "js": ["js/pages/room_time.js"]
+    }, {
+      "matches": [
+        "*://reg.kku.ac.th/registrar/stdreportsearch.asp*",
+        "*://reg-mirror.kku.ac.th/registrar/stdreportsearch.asp*"
+      ],
+      "css": ["css/pages/stdreportsearch.css"],
+      "js": ["js/pages/stdreportsearch.js"]
+    }, {
+      "matches": [
+        "*://reg.kku.ac.th/registrar/student_inclass_all.asp*",
+        "*://reg-mirror.kku.ac.th/registrar/student_inclass_all.asp*"
+      ],
+      "css": ["css/pages/student_inclass_all.css"],
+      "js": ["js/pages/student_inclass_all.js"]
+    }, {
+      "matches": [
+        "*://reg.kku.ac.th/registrar/teach_time.asp",
+        "*://reg.kku.ac.th/registrar/teach_time.asp?avs*",
+        "*://reg-mirror.kku.ac.th/registrar/teach_time.asp",
+        "*://reg-mirror.kku.ac.th/registrar/teach_time.asp?avs*"
+      ],
+      "css": ["css/pages/teach_time.css"],
+      "js": ["js/pages/teach_time.js"]
+    }, {
+      "matches": [
+        "*://reg.kku.ac.th/registrar/teach_time.asp?*officercode*",
+        "*://reg-mirror.kku.ac.th/registrar/teach_time.asp?*officercode*"
+      ],
+      "css": ["css/pages/teach_time_detail.css"],
+      "js": ["js/pages/teach_time_detail.js"]
     }
   ],
   "background": {

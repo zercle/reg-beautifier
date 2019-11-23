@@ -1,0 +1,120 @@
+@import "../variables";
+@import "../mixins";
+@import "../components/navigation";
+
+// Page Container
+div[align="center"] > #wrapper {
+  // Main Container
+  > table:nth-of-type(1) {
+    > tbody {
+      > tr {
+        // Main Content
+        > td:nth-of-type(2) {
+          text-align: center;
+          .pagename {
+            display: none;
+          }
+
+          > form {
+            @include card;
+            margin: 3rem auto 2rem;
+          }
+
+          > table:nth-child(2) {
+            @include to_card_edge($card-padding);
+            margin-bottom: 0;
+            > tbody {
+              > tr:first-child { // select calendar set
+                > td:nth-child(2) {
+                  display: none;
+                }
+                > td:nth-child(3) {
+                  display: flex;
+                  white-space: nowrap;
+                  align-items: center;
+                  padding: 24px;
+                  background-color: $gray-200 !important;
+                  color: $gray-800;
+                }
+              }
+
+              > tr:nth-child(2) { // select semester
+                > td:first-child {
+                  display: none;
+                }
+                > td:nth-child(2) {
+                  display: block;
+                  text-align: center;
+                  padding: 24px;
+
+                  font {
+                    font-size: 1.25rem !important;
+                  }
+                  a {
+                    font-size: 1rem !important;
+                  }
+
+                }
+              }
+            }
+          }
+          > table { // main data table
+            @include card;
+            @include to_card_edge($card-padding);
+            margin: 2rem auto 3rem;
+            > tbody {
+              > tr:not(:first-child) { // every data row
+                > td {
+                  padding: .75rem;
+                  vertical-align: top;
+                  border-top: 1px solid $gray-300 !important;
+                  color: $gray-700;
+                }
+              }
+
+              > tr {
+                > td:last-child, > td:nth-last-child(2) { // last two column
+                  text-align: right !important;
+                }
+
+                > td:nth-child(2) {
+                  padding-left: 24px !important;
+                }
+                > td:last-child {
+                  padding-right: 24px !important;
+                }
+              }
+            }
+          }
+          > div { // no data
+            @include card;
+            @include to_card_edge($card-padding);
+            margin: 2rem auto 3rem !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* -----------------
+        Misc.
+----------------- */
+tr.tableHeaderDetail {
+  > td {
+    padding: .75rem;
+    vertical-align: bottom;
+    border-top: 1px solid $gray-300 !important;
+    border-bottom: 2px solid $gray-300 !important;
+    text-align: left !important;
+    background-color: $dark_navy !important;
+    color: rgba(white, 0.87) !important;
+  }
+}
+
+tr.HeaderDetail {
+  > td {
+    background-color: $gray-200 !important;
+    color: $gray-800 !important;
+  }
+}

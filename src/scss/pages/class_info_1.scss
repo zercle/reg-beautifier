@@ -1,0 +1,232 @@
+@import "../variables";
+@import "../mixins";
+
+// Page Container
+div[align="center"] > #wrapper {
+  // Main Container
+  > table:nth-of-type(1) {
+    > tbody {
+      > tr {
+        // Main Content
+        > td:nth-of-type(2) {
+          //> div {
+          //  margin: auto;
+          //  &:first-child {
+          //    margin-block-start: 3rem;
+          //  }
+          //  @include card;
+          //}
+
+          > div[align="center"] {
+            margin: 0;
+            text-align: left !important;
+            &:first-of-type {
+              margin-block-start: 3rem;
+            }
+            &:not(:first-of-type) {
+              > font.HeaderDetail {
+                padding-block-start: 0.5rem !important;
+                border-top-left-radius: 0 !important;
+                border-top-right-radius: 0 !important;
+              }
+            }
+            &:not(:last-child) {
+              > font.HeaderDetail {
+                padding-block-end: 0.5rem !important;
+                border-bottom-left-radius: 0 !important;
+                border-bottom-right-radius: 0 !important;
+              }
+            }
+            > font.HeaderDetail {
+              display: block;
+              @include card;
+              margin: auto;
+              font-size: 1.5rem;
+              color: $dark_navy !important;
+              font.HeaderDetail {
+                font-size: 1rem;
+                font-weight: normal;
+                color: $gray-600 !important;
+              }
+            }
+            &:nth-child(2), &:nth-child(3) {
+              > font.HeaderDetail {
+                font.HeaderDetail {
+                  //font-size: 1.25rem;
+                  font-weight: bold;
+                  color: $gray-700 !important;
+                }
+              }
+            }
+          }
+
+          > font:last-child {
+            display: block;
+            margin-block-end: 3rem;
+            > font {
+              display: block;
+              > font {
+                display: block;
+                @include card;
+                border-top-left-radius: 0 !important;
+                border-top-right-radius: 0 !important;
+                margin: auto;
+
+                > br:first-child {
+                  display: none;
+                }
+
+                > table:nth-child(2) { // data table
+                  @include to_card_edge($card-padding);
+                  margin-block-end: $card-padding;
+                  > tbody {
+                    > tr {
+                      > td {
+                        padding: 0.75rem;
+                      }
+                      > td:first-child {
+                        display: none;
+                      }
+                      > td:nth-child(2) {
+                        padding-left: 1.5rem;
+                      }
+                      > td:nth-child(4), > td:nth-child(5), > td:nth-child(6), > td:nth-child(7), > td:nth-child(8), > td:nth-child(9) {
+                        text-align: center !important;
+                      }
+                      > td:nth-last-child(2) {
+                        padding-right: 1.5rem;
+                      }
+                      &:first-child { // helper text
+                        > td {
+                          background-color: $gray-200 !important;
+                          color: $gray-600 !important;
+                          font-weight: normal !important;
+                          > font {
+                            font-weight: normal !important;
+                          }
+                          &:nth-child(2) {
+                            text-align: left !important;
+                            padding-left: 1.5rem;
+                            > a[href="#bottom"] {
+                              &:before {
+                                content: '\f103';
+                                font-family: fa-solid;
+                              }
+                              &:hover {
+                                text-decoration: none !important;
+                              }
+                              img {
+                                display: none;
+                              }
+                            }
+                          }
+                          &:nth-child(3) {
+                            &:before {
+                              content: '\f06a';
+                              font-family: fa-solid;
+                              margin-right: 0.5em;
+                            }
+                          }
+                        }
+                      }
+                      &.HeaderDetail, &.TableHeaderDetail { // table header
+                        > td {
+                          background-color: $dark_navy !important;
+                          vertical-align: bottom;
+                          color: rgba(white, 0.87);
+                          border-bottom: 2px solid $gray-300 !important;
+
+                        }
+                        &:nth-child(2) {
+                          > td:nth-child(5) {
+                            border-bottom: 1px solid $gray-800 !important;
+                          }
+                        }
+                        &:nth-child(3) {
+                          > td {
+                            background-color: $gray-600 !important;
+                          }
+                        }
+                      }
+
+                      &.HeaderDetail:nth-child(3) {
+                        > td:nth-child(2), > td:nth-child(3), > td:nth-child(4), > td:nth-child(5) {
+                          padding-left: 0.75rem;
+                          padding-right: 0.75rem;
+                          text-align: center !important;
+                        }
+                        > td:nth-child(6) {
+                          padding-right: 1.5rem;
+                        }
+                      }
+
+                      &.NormalDetail {
+                        > td {
+                          border-top: 1px solid $gray-300 !important;
+                          vertical-align: top;
+                        }
+                        > td:last-child {
+                          display: none;
+                        }
+                      }
+
+                      &:last-child { // table footer (navigation)
+                        > td {
+                          padding: $card-padding;
+                          text-align: center;
+                          color: $gray-500 !important;
+                        }
+                      }
+                    }
+                  }
+                }
+
+                > table:nth-child(3) { // table description
+                  @include to_card_edge($card-padding);
+                  margin-block-end: -$card-padding;
+                  > tbody {
+                    > tr {
+                      > td {
+                        color: $gray-600 !important;
+                        background-color: $gray-200 !important;
+                        &:first-child {
+                          display: none;
+                        }
+                        &:nth-child(2) {
+                          padding-left: $card-padding;
+                        }
+                        &:last-child {
+                          padding-right: $card-padding;
+                        }
+                      }
+                      &:first-child {
+                        > td:nth-child(2) {
+                          > u {
+                            font-weight: bold;
+
+                          }
+                          padding-top: $card-padding;
+                          padding-bottom: 0.5rem;
+                        }
+                      }
+                      &:last-child {
+                        > td:nth-child(2) {
+                          border-radius: 0 0 0.25rem 0.25rem;
+                          padding-bottom: $card-padding;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* -----------------
+        Misc.
+----------------- */

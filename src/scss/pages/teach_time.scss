@@ -1,0 +1,116 @@
+@import "../variables";
+@import "../mixins";
+
+// Page Container
+div[align="center"] > #wrapper {
+  // Main Container
+  > table:nth-of-type(1) {
+    > tbody {
+      > tr {
+        // Main Content
+        > td:nth-of-type(2) {
+          .pagename {
+            display: none;
+          }
+          > form {
+            @include card;
+            margin: 3rem auto 0;
+            border-radius: $border-radius $border-radius 0 0 !important;
+            > table {
+              > tbody {
+                > tr {
+                  display: block;
+                  &:first-child {
+                    margin-block-end: 1rem;
+                    > td {
+                      display: flex;
+                      align-items: center;
+                      white-space: nowrap !important;
+                      > input[type='text'] {
+                        margin: 0 1rem !important;
+                      }
+                      > input[type=submit] {
+                        max-width: 128px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          > table {
+            display: block;
+            @include card;
+            margin: 0 auto 3rem;
+            border-radius: 0 0 $border-radius $border-radius !important;
+            &:nth-child(3):last-child {
+              display: table;
+              margin: 3rem auto;
+              border-radius: $border-radius !important;
+              > tbody {
+                @include to_card_edge($card-padding);
+                > tr {
+                  > td:first-child {
+                    //display: none; // remove first column
+                  }
+
+                  > td:nth-child(2) {
+                    padding-left: 24px;
+                  }
+
+                  > td:last-child {
+                    padding-right: 24px;
+                  }
+
+                }
+                > tr:first-child { // help text
+                  > td {
+                    padding: 1rem $card-padding;
+                    font-weight: normal !important;
+                    color: $gray-600 !important;
+                    background-color: $gray-200 !important;
+                    &:before {
+                      content: '\f05a';
+                      font-family: 'fa-solid';
+                      margin-right: 0.5em;
+                    }
+                    > font[color="#800000"] {
+                      color: $danger !important;
+                    }
+                  }
+                }
+
+                > tr:nth-child(2) {
+                  > td:nth-child(2) {
+                    form {
+                      font-size: inherit !important;
+                      font-weight: inherit !important;
+                    }
+                  }
+                }
+
+                > tr:not(:first-child) {
+                  > td {
+                    padding: .75rem;
+                    vertical-align: top;
+                    border-top: 1px solid $gray-300 !important;
+
+                    > a {
+                      padding: 12px;
+                    }
+                  }
+                }
+              }
+            }
+            padding: $card-padding;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* -----------------
+        Misc.
+----------------- */

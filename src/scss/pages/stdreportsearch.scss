@@ -1,0 +1,173 @@
+@import "../variables";
+@import "../mixins";
+
+// Page Container
+div[align="center"] > #wrapper {
+  // Main Container
+  > table:nth-of-type(1) {
+    > tbody {
+      > tr {
+        // Main Content
+        > td:nth-of-type(2) {
+          > table {
+            @include card();
+            margin: 3rem auto;
+            > tbody {
+              > tr {
+                > td {
+                  padding: $card-padding;
+                  > table {
+                    @include to_card_edge($card-padding);
+                    > tbody {
+                      > tr {
+                        &:first-child {
+                          > td {
+                            color: $gray-700 !important;
+                            padding: $card-padding $card-padding 0;
+                          }
+                        }
+                        &:nth-child(2) { // table header
+                          > td {
+                            padding: .75rem;
+                            vertical-align: bottom;
+                            border-top: 1px solid $gray-300 !important;
+                            border-bottom: 2px solid $gray-300 !important;
+                            text-align: left !important;
+                            background-color: $dark_navy !important;
+                            color: rgba(white, 0.87) !important;
+
+                            &:first-child {
+                              padding-left: 1.5rem;
+                            }
+                            &:last-child {
+                              padding-right: 1.5rem;
+                            }
+                          }
+                        }
+                        &:not(:first-child):not(:nth-child(2)):not(:last-child):not(:nth-last-child(2)) { // table data
+                          > td {
+                            color: $gray-700;
+                            padding: .75rem;
+                            vertical-align: top;
+                            border-top: 1px solid $gray-300 !important;
+
+                            &:first-child {
+                              padding-left: 1.5rem;
+                            }
+                            &:last-child {
+                              padding-right: 1.5rem;
+                            }
+                          }
+                          > td:nth-child(5) {
+                            > font[color="#900000"] {
+                              color: $gray-600 !important;
+                            }
+                            > font[color="#000090"] {
+                              color: $primary !important;
+                              &:before {
+                                content: '\f06a';
+                                font-family: 'fa-solid';
+                                margin-right: 0.5em;
+                              }
+                            }
+                            > font[color="#009000"] {
+                              color: $success !important;
+                              &:before {
+                                content: '\f058';
+                                font-family: 'fa-solid';
+                                margin-right: 0.5em;
+                              }
+                            }
+                          }
+                        }
+                        &:nth-last-child(2) { // page counter
+                          > td {
+                            text-align: center !important;
+                          }
+                        }
+                        &:last-child { // table summary
+                          > td {
+                            padding: $card-padding;
+                            text-align: right;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* -----------------
+        Misc.
+----------------- */
+form[action="stdreportsearch.asp"] > table > tbody {
+  display: block;
+  > tr {
+    display: block;
+    > td {
+      display: inline-block;
+    }
+  }
+  > tr:first-child { // page header
+    display: none;
+  }
+  > tr:nth-child(2) { // helper text 1
+    > td {
+      padding: 0;
+      > font {
+        display: inline-block;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        background-color: $gray-200;
+        border-radius: 0.125rem;
+        color: $gray-600 !important;
+        &:before {
+          content: '\f05a';
+          font-family: fa-solid;
+          margin-right: 0.5em;
+        }
+        > font[color="#000090"] {
+          font-weight: bold;
+          color: $kku_color !important;
+        }
+      }
+    }
+  }
+  > tr:nth-child(3) { // curriculum select
+    margin-bottom: 1rem;
+    > td:first-child {
+    }
+
+  }
+  > tr:nth-child(4) { // first name and last name
+    margin-bottom: 1rem;
+    > td:first-child {
+      padding-inline-end: 1rem;
+    }
+  }
+
+  > tr:nth-child(5) { // search button
+    text-align: right;
+    margin-bottom: 1rem;
+  }
+
+  > tr:nth-child(6) { // helper text 2
+    > td:first-child {
+      padding-block-end: 1rem;
+      color: $gray-600 !important;
+      &:before {
+        content: '\f05a';
+        font-family: 'fa-solid';
+        margin-right: 0.5em;
+      }
+    }
+  }
+
+}

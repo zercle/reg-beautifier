@@ -54,5 +54,21 @@ gulp.task('watch:css', () => {
     });
 });
 
+gulp.task('watch:js', () => {
+    const watcher = gulp.watch('src/js/**/*.js', gulp.parallel('js'));
+    watcher.on('change', function(path, stats) {
+        console.log('File ' + path + ' was changed');
+    });
+});
+
+gulp.task('watch:manifest', () => {
+    const watcher = gulp.watch('manifest.json', gulp.parallel('manifest'));
+    watcher.on('change', function(path, stats) {
+        console.log('File ' + path + ' was changed');
+    });
+});
+
+gulp.task('watch', gulp.parallel('watch:manifest', 'watch:css', 'watch:js'));
+
 
 gulp.task('default', gulp.parallel('manifest', 'img', 'font', 'css', 'js'));

@@ -1,0 +1,265 @@
+@import "../variables";
+@import "../mixins";
+@import "../components/timetable";
+@import "../components/navigation";
+
+// Page Container
+div[align="center"] > #wrapper {
+  // Main Container
+  > table:nth-of-type(1) {
+    > tbody {
+      > tr {
+        // Main Content
+        > td:nth-of-type(2) {
+          .pagename {
+            display: none;
+          }
+          > table:first-of-type {
+            @include card;
+            margin: 3rem auto;
+            > tbody {
+              > tr {
+                &:first-child { // room view type switch single or all
+                  > td:nth-child(1) {
+                    padding: 1.5rem $card-padding;
+                    background-color: $gray-200 !important;
+                    //text-align: center;
+                    color: $gray-800;
+                    font-size: 1rem;
+                    > font[color="#000000"] {
+                      > u {
+                        display: inline-block;
+                        padding: 4px 8px;
+                        background-color: $kku_color;
+                        color: white;
+                        border-radius: 2px;
+                        font-weight: normal;
+                      }
+                    }
+                  }
+                }
+
+                &:nth-child(2) { // helper text
+                  > td:first-child {
+                    padding: 1rem 1.5rem;
+                    color: $gray-600;
+                    font-weight: normal;
+
+                    > img {
+                      display: none;
+                    }
+
+                    &:before {
+                      content: '\f05a';
+                      font-family: fa-solid;
+                    }
+                  }
+                }
+
+                &:nth-child(3) { // campus title
+                  > td:first-child {
+                    padding: 1rem 1.5rem;
+                    font-size: 1.25rem;
+                    font-weight: normal !important;
+                    color: rgba(white, 0.87) !important;
+                    background-color: $dark_navy !important;
+                    &:before {
+                      content: '\f3c5';
+                      font-family: fa-solid;
+                      margin-right: 0.5em;
+                    }
+
+                  }
+                }
+
+                &:not(.PageName):not(.HeaderDetail):not(:first-child):not(:nth-child(2)) {
+                  > td {
+                    padding: 0.75rem 1.5rem;
+                    vertical-align: top;
+                    border-top: 1px solid $gray-300 !important;
+                  }
+                }
+
+                // Detail Page
+                &:nth-child(3) {
+                  > form + td + td:nth-child(3) { // access to last td
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    padding: 1.5rem;
+                    > select {
+                      margin-left: 1rem !important;
+                    }
+                  }
+
+                  & + tr:not(.HeaderDetail) { // attribute
+                    > td {
+                      display: none;
+                    }
+                    & + tr:not(.HeaderDetail) {
+                      display: flex;
+                      width: 100%;
+                      text-align: center;
+                      > td[width="220"], > td[width="310"] {
+                        width: 50% !important;
+                        padding: 1.5rem;
+
+                        font {
+                          font-size: 1.25rem !important;
+                        }
+                        a {
+                          font-size: 1rem !important;
+                        }
+                        > font {
+                          > a { // previous year navigation
+                            &:hover {
+                              text-decoration: none !important;
+                            }
+                            &:before {
+                              content: '\f359';
+                              font-family: fa-solid;
+                              font-size: 1.5em;
+                              margin-left: 0.5em;
+                              margin-right: 0.25em;
+                            }
+                            > img {
+                              display: none;
+                            }
+                          }
+                          > font > font {
+                            > a:first-child { // next navigation
+                              &:before {
+                                content: '\f35a';
+                                font-family: fa-solid;
+                                font-size: 1.5em;
+                                margin-left: 0.15em;
+                                margin-right: 0.5em;
+                              }
+                              &:hover {
+                                text-decoration: none !important;
+                              }
+                              > img {
+                                display: none;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              > form ~ input + tr { // day selector
+                > td {
+
+                }
+
+                + tr { // semester navigation
+                  display: flex;
+                  width: 100%;
+                  text-align: center;
+                  > td[width="220"], > td[width="310"] {
+                    width: 50% !important;
+                    padding: 1.5rem !important;
+
+                    font {
+                      font-size: 1.25rem !important;
+                    }
+                    a {
+                      font-size: 1rem !important;
+                    }
+                    > font {
+                      > a { // previous year navigation
+                        &:hover {
+                          text-decoration: none !important;
+                        }
+                        &:before {
+                          content: '\f359';
+                          font-family: fa-solid;
+                          font-size: 1.5em;
+                          margin-left: 0.5em;
+                          margin-right: 0.25em;
+                        }
+                        > img {
+                          display: none;
+                        }
+                      }
+                      > font > font {
+                        > a:first-child { // next navigation
+                          &:before {
+                            content: '\f35a';
+                            font-family: fa-solid;
+                            font-size: 1.5em;
+                            margin-left: 0.15em;
+                            margin-right: 0.5em;
+                          }
+                          &:hover {
+                            text-decoration: none !important;
+                          }
+                          > img {
+                            display: none;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          > font:nth-child(2) {
+            display: none !important;
+          }
+          > div:nth-child(3), > div:nth-child(4) { // no data available
+            @include to_card_edge($card-padding);
+            margin-top: 1.5rem;
+            margin-bottom: 0;
+            + br + table { // table helper
+              @include to_card_edge($card-padding);
+              margin-bottom: 0;
+              > tbody {
+                > tr {
+                  > td {
+                    &:first-child {
+                      display: none;
+                    }
+                    &:nth-child(2) {
+                      padding: 1.5rem;
+                      background-color: $gray-100 !important;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          > table:nth-of-type(2) {
+            @include card;
+            margin: 0 auto;
+          }
+          > div:last-of-type { //room type explain container
+            padding: 1.5rem 0 0 !important;
+            > font {
+              > table {
+                td {
+                  color: $gray-600 !important;
+                  font-size: 0.8rem !important;
+                }
+              }
+              > table > tbody > tr > td:first-child {
+                display: none;
+              }
+            }
+
+            + font {
+              display: none !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* -----------------
+        Misc.
+----------------- */

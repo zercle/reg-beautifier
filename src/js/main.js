@@ -1,6 +1,11 @@
 // Init sidebar
-let sidebar = document.querySelectorAll('#wrapper > table > tbody > tr > td:nth-child(2)')[0];
-sidebar.setAttribute('id', 'sidebar');
+let sidebar = document.querySelectorAll('#wrapper > table > tbody > tr > td:nth-of-type(1)')[0];
+try {
+    sidebar.setAttribute('id', 'sidebar');
+} catch (e) {
+    console.log('sidebar not found');
+}
+
 // Init responsive for mobile site
 const meta = document.createElement('meta');
 meta.name = 'viewport';
@@ -37,4 +42,21 @@ function toggleSidebar() {
     } else {
         sidebar.className = '';
     }
+}
+
+function addTitleBar(title_th, title_en, icon = null ,icon_class = 'fas') {
+    let contentContainer = document.querySelectorAll('#wrapper > table > tbody > tr > td:nth-of-type(2)')[0];
+    contentContainer.setAttribute('id', 'main_content_container');
+
+    let title;
+    if (this.getCurrentLanguage() === 'th') {
+        title = title_th;
+    } else {
+        title = title_en;
+    }
+    let titleBar = document.createElement('header');
+    titleBar.className = 'title-bar';
+    titleBar.innerHTML = `<i class="${icon_class}">${icon}</i><h1>${title}</h1>`;
+
+    contentContainer.insertBefore(titleBar, contentContainer.firstChild);
 }
