@@ -20,6 +20,16 @@ div[align="center"] > #wrapper {
   }
 }
 
+input[name=f_uid] {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+input[name=f_pwd] {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
 /* -----------------
         Misc.
 ----------------- */
