@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "REG Beautifier",
-  "version": "2019.1.1",
-  "version_name": "2019.1.1",
+  "version": "2020.1.1",
+  "version_name": "2020.1.1",
   "description": "Modified UI for REG KKU",
   "permissions": [
     "declarativeContent",
