@@ -1,6 +1,6 @@
 {
   "name": "reg-beautifier",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A Modified UI for REG KKU Website",
   "main": "manifest.json",
   "repository": "https://github.com/zercle/reg-beautifier",
