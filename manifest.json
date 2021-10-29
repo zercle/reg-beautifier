@@ -123,6 +123,19 @@
       ],
       "css": ["css/pages/teach_time_detail.css"],
       "js": ["js/pages/teach_time_detail.js"]
+    }, {
+      "matches": [
+        "*://reg.kku.ac.th/registrar/student.asp?*",
+        "*://reg-mirror.kku.ac.th/registrar/student.asp?*"
+      ],
+      "css": ["css/pages/student.css"]
+    }, {
+      "matches": [
+        "*://reg.kku.ac.th/registrar/auth_needed.asp*",
+        "*://reg-mirror.kku.ac.th/registrar/auth_needed.asp*"
+      ],
+      "css": ["css/pages/auth_needed.css"],
+      "js": ["js/pages/auth_needed.js"]
     }
   ],
   "background": {
