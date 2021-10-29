@@ -1,0 +1,40 @@
+@import "../variables";
+@import "../mixins";
+
+// Page Container
+div[align="center"] > #wrapper {
+  // Main Container
+  > table:nth-of-type(1) {
+    > tbody {
+      > tr {
+        // Main Content
+        > td:nth-of-type(2) {
+          > table:nth-of-type(1) {
+            display: none;
+          }
+          > table:nth-of-type(2) {
+            display: block;
+            margin-block: 4rem;
+            margin-inline: auto;
+            max-width: $content-container-max-width;
+            @include card();
+            > tbody {
+              > tr {
+                > td:first-of-type {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* -----------------
+        Misc.
+----------------- */
+.title-bar {
+  color: darken($color-error, 16%);
+}
