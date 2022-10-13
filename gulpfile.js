@@ -1,74 +1,126 @@
-const gulp = require('gulp');
-const del = require('del');
-const sass = require('gulp-sass');
-const sourcemaps = require('gulp-sourcemaps');
+const {src, dest, series, parallel, watch} = require('gulp');
+const {clean} = require('gulp-clean')
+const {sass} = require('gulp-sass');
+const {sourcemaps} = require('gulp-sourcemaps');
 
-gulp.task('clean:manifest', function () {
-    return del(['dist/manifest.json']);
-});
-gulp.task('clean:img', function () {
-    return del(['dist/images']);
-});
-gulp.task('clean:font', function () {
-    return del(['dist/webfonts']);
-});
-gulp.task('clean:css', function () {
-    return del(['dist/css']);
-});
-gulp.task('clean:js', function () {
-    return del(['dist/js']);
-});
+function cleanManifest(cb) {
+    src(['dist/manifest.json'])
+        .pipe(clean());
+    cb();
+}
 
-gulp.task('manifest', gulp.series('clean:manifest', () => {
-    return gulp.src('manifest.json')
-        .pipe(gulp.dest('dist'));
-}));
+function cleanImage(cb) {
+    src(['dist/images'])
+        .pipe(clean());
+    cb();
+}
 
-gulp.task('img', gulp.series('clean:img', () => {
-    return gulp.src('src/images/**/*')
-        .pipe(gulp.dest('dist/images'));
-}));
+function cleanFont(cb) {
+    src(['dist/webfonts'])
+        .pipe(clean());
+    cb();
+}
 
-gulp.task('font', gulp.series('clean:font', () => {
-    return gulp.src('node_modules/@fortawesome/fontawesome-free/webfonts/**/*')
-        .pipe(gulp.dest('dist/webfonts'));
-}));
+function cleanCss(cb) {
+    src(['dist/css'])
+        .pipe(clean());
+    cb();
+}
 
-gulp.task('css', gulp.series('clean:css', () => {
-    return gulp.src('src/scss/**/*.scss')
+function cleanJs(cb) {
+    src(['dist/js'])
+        .pipe(clean());
+    cb();
+}
+
+function copyManifest(cb) {
+    src('manifest.json')
+        .pipe(dest('dist'));
+    cb();
+}
+
+function copyImage(cb) {
+    src('src/images/**/*')
+        .pipe(dest('dist/images'));
+    cb();
+}
+
+function copyFont(cb) {
+    src('node_modules/@fortawesome/fontawesome-free/webfonts/**/*')
+        .pipe(dest('dist/webfonts'));
+    cb();
+}
+
+function buildCss(cb) {
+    src('src/scss/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('dist/css'));
-}));
+        .pipe(dest('dist/css'));
+    cb();
+}
 
-gulp.task('js', gulp.series('clean:js', () => {
-    return gulp.src('src/js/**/*.js')
-        .pipe(gulp.dest('dist/js'));
-}));
+function buildJs(cb) {
+    src('src/js/**/*.js')
+        .pipe(dest('dist/js'));
+    cb();
+}
 
-gulp.task('watch:css', () => {
-    const watcher = gulp.watch('src/scss/**/*.scss', gulp.parallel('css'));
+function manifest(cb) {
+    series(cleanManifest, copyManifest);
+    cb();
+}
+
+function img(cb) {
+    series(cleanImage, copyImage);
+    cb();
+}
+
+function font(cb) {
+    series(cleanFont, copyFont);
+}
+
+function css(cb) {
+    series(cleanCss, buildCss);
+    cb();
+}
+
+function js(cb) {
+    series(cleanJs, buildJs);
+    cb();
+}
+
+function watchCss(cb) {
+    const watcher = watch('src/scss/**/*.scss', parallel(css));
     watcher.on('change', function(path, stats) {
         console.log('File ' + path + ' was changed');
     });
-});
+    cb();
+}
 
-gulp.task('watch:js', () => {
-    const watcher = gulp.watch('src/js/**/*.js', gulp.parallel('js'));
+function watchJs(cb) {
+    const watcher = watch('src/js/**/*.js', parallel(js));
     watcher.on('change', function(path, stats) {
         console.log('File ' + path + ' was changed');
     });
-});
+    cb();
+}
 
-gulp.task('watch:manifest', () => {
-    const watcher = gulp.watch('manifest.json', gulp.parallel('manifest'));
+function watchManifest(cb) {
+    const watcher = watch('manifest.json', parallel(manifest));
     watcher.on('change', function(path, stats) {
         console.log('File ' + path + ' was changed');
     });
-});
+    cb();
+}
 
-gulp.task('watch', gulp.parallel('watch:manifest', 'watch:css', 'watch:js'));
+function watchAll() {
+    parallel(watchManifest, watchCss, watchJs);
+}
 
+function build() {
+    parallel(manifest, img, font, css, js);
+}
 
-gulp.task('default', gulp.parallel('manifest', 'img', 'font', 'css', 'js'));
+exports.watch = watchAll;
+exports.default = build;
