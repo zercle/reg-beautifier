@@ -4,31 +4,30 @@ const {sass} = require('gulp-sass');
 const {sourcemaps} = require('gulp-sourcemaps');
 
 function cleanManifest(cb) {
-    src(['dist/manifest.json'])
+    src(['dist/manifest.json'], {read: false})
         .pipe(clean());
     cb();
 }
 
 function cleanImage(cb) {
-    src(['dist/images'])
+    src(['dist/images'], {read: false})
         .pipe(clean());
     cb();
 }
 
 function cleanFont(cb) {
-    src(['dist/webfonts'])
+    src(['dist/webfonts'], {read: false})
         .pipe(clean());
     cb();
 }
 
 function cleanCss(cb) {
-    src(['dist/css'])
+    return src(['dist/css'], {read: false})
         .pipe(clean());
-    cb();
 }
 
 function cleanJs(cb) {
-    src(['dist/js'])
+    src(['dist/js'], {read: false})
         .pipe(clean());
     cb();
 }
@@ -52,40 +51,40 @@ function copyFont(cb) {
 }
 
 function buildCss(cb) {
-    src('src/scss/**/*.scss')
-        .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(sourcemaps.write())
-        .pipe(dest('dist/css'));
-    cb();
+    return src('src/scss/**/*.scss')
+        .pipe(
+            sourcemaps.init(),
+            sass().on('error', sass.logError),
+            sourcemaps.write(),
+            dest('dist/css')
+        )
 }
 
 function buildJs(cb) {
-    src('src/js/**/*.js')
+    return src('src/js/**/*.js')
         .pipe(dest('dist/js'));
-    cb();
 }
 
-function manifest(cb) {
+async function manifest(cb) {
     series(cleanManifest, copyManifest);
     cb();
 }
 
-function img(cb) {
+async function img(cb) {
     series(cleanImage, copyImage);
     cb();
 }
 
-function font(cb) {
+async function font(cb) {
     series(cleanFont, copyFont);
-}
-
-function css(cb) {
-    series(cleanCss, buildCss);
     cb();
 }
 
-function js(cb) {
+function css(cb) {
+    return series(cleanCss, buildCss);
+}
+
+async function js(cb) {
     series(cleanJs, buildJs);
     cb();
 }
@@ -122,5 +121,6 @@ function build() {
     parallel(manifest, img, font, css, js);
 }
 
+exports.css = css;
 exports.watch = watchAll;
 exports.default = build;
