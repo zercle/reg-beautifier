@@ -5,6 +5,12 @@
 @import "./fontawesome";
 @import "./components/sidebar";
 
+:root {
+  --kku-color: #a73b24;
+  --sidebar-bg-color: #2a3a42;
+  --facebook-brand-color: #0966ff;
+}
+
 * {
   font-family: $font-family-sans-serif !important;
 }
@@ -75,7 +81,7 @@ body > #header {
   height: $site-header-height !important;
   padding: initial;
   //noinspection CssUnknownTarget
-  background-color: $kku_color !important;
+  background-color: var(--kku-color) !important;
   background-size: contain !important;
   box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
     0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
@@ -172,7 +178,7 @@ div[align="center"] > #wrapper {
       > tr:last-of-type {
         > td:first-of-type {
           width: $sidebar-width;
-          background: $sidebar-bg !important;
+          background: var(--sidebar-bg-color) !important;
         }
 
         > td:last-of-type {
@@ -290,7 +296,7 @@ a[href*="facebook.com/share.php"] {
   border-radius: 3px;
   font-size: 10px;
   color: white !important;
-  background-color: #4267b2 !important;
+  background-color: var(--facebook-brand-color) !important;
 
   &:before {
     content: "\f39e";
