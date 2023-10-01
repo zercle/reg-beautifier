@@ -80,8 +80,9 @@ async function font(cb) {
     cb();
 }
 
-function css(cb) {
-    return series(cleanCss, buildCss);
+async function css(cb) {
+    series(cleanCss, buildCss);
+    cb();
 }
 
 async function js(cb) {
@@ -117,8 +118,9 @@ function watchAll() {
     parallel(watchManifest, watchCss, watchJs);
 }
 
-function build() {
+async function build(cb) {
     parallel(manifest, img, font, css, js);
+    cb();
 }
 
 exports.css = css;
