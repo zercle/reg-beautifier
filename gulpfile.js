@@ -3,66 +3,68 @@ const {clean} = require('gulp-clean')
 const {sass} = require('gulp-sass');
 const {sourcemaps} = require('gulp-sourcemaps');
 
-function cleanManifest(cb) {
+async function cleanManifest(cb) {
     src(['dist/manifest.json'], {read: false})
         .pipe(clean());
     cb();
 }
 
-function cleanImage(cb) {
+async function cleanImage(cb) {
     src(['dist/images'], {read: false})
         .pipe(clean());
     cb();
 }
 
-function cleanFont(cb) {
+async function cleanFont(cb) {
     src(['dist/webfonts'], {read: false})
         .pipe(clean());
     cb();
 }
 
-function cleanCss(cb) {
+async function cleanCss(cb) {
     return src(['dist/css'], {read: false})
         .pipe(clean());
 }
 
-function cleanJs(cb) {
+async function cleanJs(cb) {
     src(['dist/js'], {read: false})
         .pipe(clean());
     cb();
 }
 
-function copyManifest(cb) {
+async function copyManifest(cb) {
     src('manifest.json')
         .pipe(dest('dist'));
     cb();
 }
 
-function copyImage(cb) {
+async function copyImage(cb) {
     src('src/images/**/*')
         .pipe(dest('dist/images'));
     cb();
 }
 
-function copyFont(cb) {
+async function copyFont(cb) {
     src('node_modules/@fortawesome/fontawesome-free/webfonts/**/*')
         .pipe(dest('dist/webfonts'));
     cb();
 }
 
-function buildCss(cb) {
-    return src('src/scss/**/*.scss')
+async function buildCss(cb) {
+    src('src/scss/**/*.scss')
         .pipe(
             sourcemaps.init(),
             sass().on('error', sass.logError),
             sourcemaps.write(),
             dest('dist/css')
-        )
+        );
+    cb();
 }
 
-function buildJs(cb) {
-    return src('src/js/**/*.js')
+async function buildJs(cb) {
+    src('src/js/**/*.js')
         .pipe(dest('dist/js'));
+    cb();
 }
 
 async function manifest(cb) {
@@ -90,7 +92,7 @@ async function js(cb) {
     cb();
 }
 
-function watchCss(cb) {
+async function watchCss(cb) {
     const watcher = watch('src/scss/**/*.scss', parallel(css));
     watcher.on('change', function (path, stats) {
         console.log('File ' + path + ' was changed');
@@ -98,7 +100,7 @@ function watchCss(cb) {
     cb();
 }
 
-function watchJs(cb) {
+async function watchJs(cb) {
     const watcher = watch('src/js/**/*.js', parallel(js));
     watcher.on('change', function (path, stats) {
         console.log('File ' + path + ' was changed');
@@ -106,7 +108,7 @@ function watchJs(cb) {
     cb();
 }
 
-function watchManifest(cb) {
+async function watchManifest(cb) {
     const watcher = watch('manifest.json', parallel(manifest));
     watcher.on('change', function (path, stats) {
         console.log('File ' + path + ' was changed');
@@ -114,8 +116,9 @@ function watchManifest(cb) {
     cb();
 }
 
-function watchAll() {
+async function watchAll(cb) {
     parallel(watchManifest, watchCss, watchJs);
+    cb();
 }
 
 async function build(cb) {
@@ -124,5 +127,6 @@ async function build(cb) {
 }
 
 exports.css = css;
+exports.copyImage = copyImage;
 exports.watch = watchAll;
 exports.default = build;
