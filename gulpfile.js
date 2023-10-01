@@ -91,7 +91,7 @@ async function js(cb) {
 
 function watchCss(cb) {
     const watcher = watch('src/scss/**/*.scss', parallel(css));
-    watcher.on('change', function(path, stats) {
+    watcher.on('change', function (path, stats) {
         console.log('File ' + path + ' was changed');
     });
     cb();
@@ -99,7 +99,7 @@ function watchCss(cb) {
 
 function watchJs(cb) {
     const watcher = watch('src/js/**/*.js', parallel(js));
-    watcher.on('change', function(path, stats) {
+    watcher.on('change', function (path, stats) {
         console.log('File ' + path + ' was changed');
     });
     cb();
@@ -107,7 +107,7 @@ function watchJs(cb) {
 
 function watchManifest(cb) {
     const watcher = watch('manifest.json', parallel(manifest));
-    watcher.on('change', function(path, stats) {
+    watcher.on('change', function (path, stats) {
         console.log('File ' + path + ' was changed');
     });
     cb();
