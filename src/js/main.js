@@ -1,4 +1,4 @@
-import { initSidebar, toggleSidebar, initResponsive, createSidebarToggleButton } from './utils.js';
+import { initSidebar, toggleSidebar, initResponsive, createSidebarToggleButton, getCurrentLanguage, addTitleBar } from './utils.js';
 import { initPerformanceMonitoring, mark } from './performance.js';
 
 // Start performance monitoring
@@ -24,3 +24,6 @@ if (btn && sidebar) {
 mark('toggle-button-end');
 
 mark('main-end');
+
+// Export utility functions for other scripts to use
+export { getCurrentLanguage, addTitleBar };

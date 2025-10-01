@@ -6,6 +6,9 @@ const cssnano = require('gulp-cssnano');
 const terser = require('gulp-terser');
 const gulpif = require('gulp-if');
 const browserSync = require('browser-sync').create();
+const esbuild = require('esbuild');
+const {glob} = require('glob');
+const path = require('path');
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -59,11 +62,56 @@ function buildCss() {
         .pipe(browserSync.stream());
 }
 
-function buildJs() {
-    return src('src/js/**/*.js')
-        .pipe(gulpif(isProd, terser()))
-        .pipe(dest('dist/js'))
-        .pipe(browserSync.stream());
+async function buildJs() {
+    // Build main.js with utils and performance bundled, exposing globals
+    try {
+        await esbuild.build({
+            entryPoints: ['src/js/main.js'],
+            bundle: true,
+            format: 'iife',
+            globalName: 'REGBeautifier',
+            target: ['chrome120', 'firefox120'],
+            outdir: 'dist/js',
+            sourcemap: !isProd,
+            minify: isProd,
+            platform: 'browser',
+            footer: {
+                js: `
+// Expose utility functions globally for page scripts
+if (typeof window !== 'undefined' && typeof REGBeautifier !== 'undefined') {
+    window.getCurrentLanguage = REGBeautifier.getCurrentLanguage;
+    window.addTitleBar = REGBeautifier.addTitleBar;
+}
+`.trim()
+            },
+            logLevel: 'info'
+        });
+
+        // Build other JS files (background, pages) separately
+        const otherEntryPoints = await glob('src/js/**/*.js', {
+            ignore: ['src/js/**/*.test.js', 'src/js/main.js', 'src/js/utils.js', 'src/js/performance.js']
+        });
+
+        if (otherEntryPoints.length > 0) {
+            await esbuild.build({
+                entryPoints: otherEntryPoints,
+                bundle: false, // Don't bundle page files, they use globals from main.js
+                format: 'iife',
+                target: ['chrome120', 'firefox120'],
+                outdir: 'dist/js',
+                outbase: 'src/js',
+                sourcemap: !isProd,
+                minify: isProd,
+                platform: 'browser',
+                logLevel: 'info'
+            });
+        }
+
+        browserSync.reload();
+    } catch (error) {
+        console.error('esbuild error:', error);
+        throw error;
+    }
 }
 
 const manifest = series(cleanManifest, copyManifest);
