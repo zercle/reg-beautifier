@@ -6,9 +6,85 @@
 @import "./components/sidebar";
 
 :root {
+  // Brand colors
   --kku-color: #a73b24;
   --sidebar-bg-color: #2a3a42;
   --facebook-brand-color: #0966ff;
+
+  // Layout
+  --sidebar-width: 220px;
+  --site-header-height: 64px;
+  --site-footer-height: 1.5rem;
+
+  // Spacing
+  --spacer: 1rem;
+  --card-padding: 1.25rem;
+
+  // Typography
+  --font-size-base: 16px;
+  --line-height-base: 1.5;
+
+  // Colors
+  --body-bg: #efefef;
+  --body-color: rgba(42, 58, 66, 0.87);
+  --link-color: var(--kku-color);
+
+  // Effects
+  --border-radius: 4px;
+  --card-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+                 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+                 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+  // Accessibility
+  --focus-ring-color: rgba(167, 59, 36, 0.5);
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+}
+
+// Skip to main content link
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--kku-color);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+
+  &:focus {
+    top: 0;
+  }
+}
+
+// Improve focus visibility globally
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+// Ensure sufficient color contrast
+@media (prefers-contrast: high) {
+  :root {
+    --body-color: rgba(42, 58, 66, 1);
+    --link-color: #8b2f1e;
+  }
+}
+
+// Respect reduced motion preference
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 * {
@@ -240,9 +316,18 @@ div[align="center"] > #wrapper {
   border-radius: $border-radius !important;
   cursor: pointer;
   background-color: transparent;
+  color: white;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: rgba(black, 0.2);
+    outline: 2px solid rgba(white, 0.5);
+    outline-offset: 2px;
+  }
+
+  &:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
   }
 }
 
@@ -314,6 +399,11 @@ a[href*="facebook.com/share.php"] {
     text-decoration: none !important;
     color: white !important;
     background-color: darken(#4267b2, 5%) !important;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--kku-color);
+    outline-offset: 2px;
   }
 
   img {
