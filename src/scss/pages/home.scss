@@ -51,7 +51,7 @@ div[align="center"] > #wrapper {
                   &:not(:nth-of-type(2)) {
                     margin-top: 1rem;
                   }
-                  color: $kku_color;
+                  color: var(--kku-color);
                   > td {
                     display: flex;
                     align-items: center;

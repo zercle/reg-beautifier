@@ -36,5 +36,5 @@ div[align="center"] > #wrapper {
         Misc.
 ----------------- */
 .title-bar {
-  color: darken($color-error, 16%);
+  color: var(--color-error-dark);
 }

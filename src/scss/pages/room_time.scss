@@ -30,7 +30,7 @@ div[align="center"] > #wrapper {
                       > u {
                         display: inline-block;
                         padding: 4px 8px;
-                        background-color: $kku_color;
+                        background-color: var(--kku-color);
                         color: white;
                         border-radius: 2px;
                         font-weight: normal;
