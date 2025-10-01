@@ -10,9 +10,12 @@
   --kku-color: #a73b24;
   --kku-color-dark: color-mix(in srgb, #a73b24 90%, black);
   --dark-navy: #2a3a42;
+  --dark-navy-75: rgba(42, 58, 66, 0.75);
+  --dark-navy-dark: color-mix(in srgb, #2a3a42 95%, black);
   --sidebar-bg-color: #2a3a42;
   --sidebar-bg-color-dark: color-mix(in srgb, #2a3a42 95%, black);
   --facebook-brand-color: #0966ff;
+  --facebook-brand-color-dark: color-mix(in srgb, #4267b2 95%, black);
   --color-success: #48BB78;
   --color-error: #e53e3e;
   --color-error-dark: color-mix(in srgb, #e53e3e 84%, black);
@@ -32,6 +35,8 @@
 
   // Semantic colors
   --danger: #dc3545;
+  --danger-40: rgba(220, 53, 69, 0.4);
+  --danger-10: rgba(220, 53, 69, 0.1);
   --red: #dc3545;
   --blue: #007bff;
 
@@ -442,7 +447,7 @@ a[href*="facebook.com/share.php"] {
   &:hover {
     text-decoration: none !important;
     color: white !important;
-    background-color: darken(#4267b2, 5%) !important;
+    background-color: var(--facebook-brand-color-dark) !important;
   }
 
   &:focus-visible {

@@ -15,6 +15,8 @@ $gray-800: var(--gray-800);
 $gray-900: var(--gray-900);
 $black: var(--black);
 
+$primary: var(--kku-color);
+$success: var(--color-success);
 $danger: var(--danger);
 $red: var(--red);
 $blue: var(--blue);
@@ -32,6 +34,10 @@ $headings-margin-bottom: var(--headings-margin-bottom);
 $paragraph-margin-bottom: var(--paragraph-margin-bottom);
 $dt-font-weight: var(--dt-font-weight);
 
+// Body
+$body-bg: var(--body-bg);
+$body-color: var(--body-color);
+
 // Tables
 $table-cell-padding: var(--table-cell-padding);
 $table-caption-color: var(--table-caption-color);
@@ -40,6 +46,8 @@ $table-caption-color: var(--table-caption-color);
 $label-margin-bottom: var(--label-margin-bottom);
 
 // Links
+$link-color: var(--link-color);
+$link-hover-color: var(--link-hover-color);
 $link-decoration: var(--link-decoration);
 $link-hover-decoration: var(--link-hover-decoration);
 
