@@ -32,7 +32,7 @@
         "*://reg-mirror.kku.ac.th/*"
       ],
       "css": ["css/styles.css"],
-      "js": ["js/main.js"]
+      "js": ["js/utils.js", "js/performance.js", "js/main.js"]
     }, {
       "matches": [
         "*://reg.kku.ac.th/registrar/calendar.asp*",
