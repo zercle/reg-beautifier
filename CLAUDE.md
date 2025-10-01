@@ -26,8 +26,6 @@ bun run build
 bun run watch
 ```
 
-**Note**: The watch command is defined in gulpfile.js but may not work as expected due to missing function invocations in the series/parallel calls (see gulpfile.js:71-127).
-
 ## Architecture
 
 ### Extension Structure
