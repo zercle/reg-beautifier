@@ -11,19 +11,13 @@ Modified UI for REG KKU Website
 ## Development
 #### Installation
 ```zsh
-yarn
-# or
-npm install
+bun install
 ```
 #### Requires Package
 ```zsh
-yarn global add gulp-cli
-# or
-npm install -g gulp-cli
+bun add -g gulp-cli
 ```
 #### Run
 ```zsh
-yarn start
-# or
-npm start
+bun run dev
 ```
