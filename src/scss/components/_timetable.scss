@@ -33,7 +33,7 @@ table.timeheader { // teach table
         font-size: 10px;
         font-weight: normal;
         background-color: $dark_navy !important;
-        border-color: darken($dark_navy, 5%) !important;
+        border-color: var(--dark-navy-dark) !important;
         color: rgba(white, 0.87);
 
         > font > b, > font > b > font {
@@ -53,8 +53,8 @@ table.timeheader { // teach table
       }
       > td[bgcolor="#C05050"] { // sat-sun
         vertical-align: middle;
-        background-color: rgba($danger, 0.4) !important;
-        border-color: rgba($danger, 0.4) !important;
+        background-color: var(--danger-40) !important;
+        border-color: var(--danger-40) !important;
         color: $gray-800;
       }
       > td[bgcolor="#C0D0FF"], > td[bgcolor="#D0D0F0"] {
@@ -64,7 +64,7 @@ table.timeheader { // teach table
         font-weight: normal;
       }
       > td[bgcolor="#FFA0A0"], > td[bgcolor="#A0FFA0"] {
-        background-color: rgba($danger, 0.1) !important;
+        background-color: var(--danger-10) !important;
         border-color: $gray-300 !important;
         color: $gray-600;
         font-weight: normal;
