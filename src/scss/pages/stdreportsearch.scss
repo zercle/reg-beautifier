@@ -135,7 +135,7 @@ form[action="stdreportsearch.asp"] > table > tbody {
         }
         > font[color="#000090"] {
           font-weight: bold;
-          color: $kku_color !important;
+          color: var(--kku-color) !important;
         }
       }
     }
